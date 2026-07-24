@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Sempre abre no topo: recarregar (F5) ou voltar não deve manter a
+    // rolagem antiga. Roda antes da 1ª pintura, então não há "pulo" visível.
+    // Links com #âncora continuam indo direto para a seção pedida.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (!location.hash) window.scrollTo(0, 0);
+  </script>
+  <title>ForceFire Extintores | Venda e Recarga de Extintores, AVCB e CLCB em Ribeirão Preto – SP</title>
+  <meta name="description" content="Extintores, recarga, teste hidrostático, mangueiras, sinalização e AVCB/CLCB em Ribeirão Preto e todo SP. Aviso gratuito de vencimento das cargas.">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://viniciusextremxd.github.io/forcefire-extintores/">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ForceFire Extintores">
+  <meta property="og:title" content="ForceFire Extintores | Extintores e Segurança em Ribeirão Preto e todo SP">
+  <meta property="og:description" content="Venda, recarga e manutenção de extintores com rigor técnico e conformidade Inmetro / ABNT NBR. Retirada e entrega, aviso gratuito de vencimento e regularização AVCB/CLCB.">
+  <meta property="og:url" content="https://viniciusextremxd.github.io/forcefire-extintores/">
+  <meta property="og:image" content="https://viniciusextremxd.github.io/forcefire-extintores/img/banner002.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg?v=1">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css?v=4">
+
+  <!-- Dados estruturados: negócio local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ForceFire Extintores e Segurança",
+    "telephone": "+55-16-3663-5520",
+    "image": "img/logo-ff.svg",
+    "areaServed": "Ribeirão Preto, região e Estado de São Paulo",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ribeirão Preto",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.instagram.com/forcefire_extintores"
+    ]
+  }
+  </script>
+  <!-- Dados estruturados: navegação do site (Sitelinks) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "SiteNavigationElement", "position": 1, "name": "A Empresa", "url": "./#empresa" },
+      { "@type": "SiteNavigationElement", "position": 2, "name": "Serviços", "url": "./#servicos" },
+      { "@type": "SiteNavigationElement", "position": 3, "name": "Produtos", "url": "./#produtos" },
+      { "@type": "SiteNavigationElement", "position": 4, "name": "Licenciamento AVCB e CLCB", "url": "./#licenciamento" },
+      { "@type": "SiteNavigationElement", "position": 5, "name": "Dicas de Segurança", "url": "./#dicas" },
+      { "@type": "SiteNavigationElement", "position": 6, "name": "Contato", "url": "./#contato" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#home">Pular para o conteúdo</a>
+
+  <!-- Barra de progresso de scroll -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="topbar-item" href="https://maps.google.com/?q=Ribeir%C3%A3o+Preto,+SP" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Atendemos Ribeirão Preto, região e todo o Estado de SP</span>
+      </a>
+      <div class="topbar-right">
+        <a class="topbar-item" href="tel:+551636635520">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          <span>Fixo: (16) 3663-5520</span>
+        </a>
+        <a class="topbar-item topbar-whats" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20ForceFire%20Extintores." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          <span>(16) 99408-8793</span>
+        </a>
+        <a class="topbar-item topbar-insta" href="https://www.instagram.com/forcefire_extintores" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+          <span>@forcefire_extintores</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER / NAVBAR ============ -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#home" class="brand" aria-label="ForceFire Extintores - Início">
+        <img class="brand-icon" src="img/logo-ff.svg?v=1" alt="" width="53" height="46" fetchpriority="high">
+        <span class="brand-text">
+          <b class="brand-name">FORCE<i>FIRE</i></b>
+          <span class="brand-sub">Extintores</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <a href="#home" class="nav-link is-active">Home</a>
+        <a href="#empresa" class="nav-link">A Empresa</a>
+        <a href="#servicos" class="nav-link">Serviços</a>
+        <a href="#produtos" class="nav-link">Produtos</a>
+        <a href="#licenciamento" class="nav-link">Licenciamento</a>
+        <a href="#dicas" class="nav-link">Dicas</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contato" class="btn btn-primary btn-magnetic header-cta">
+          <span>Solicitar Orçamento</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO SLIDER ============ -->
+    <section class="hero" id="home">
+      <canvas id="embers" class="hero-embers" aria-hidden="true"></canvas>
+
+      <div class="hero-slider" id="heroSlider" role="group" aria-roledescription="carrossel" aria-label="Destaques da ForceFire">
+        <!-- Slide 1 -->
+        <article class="slide slide-dark is-active">
+          <div class="slide-bg">
+            <img src="img/banner001.jpg?v=1" alt="Mangueira e extintor de incêndio instalados em corredor de edificação" fetchpriority="high" decoding="async">
+          </div>
+          <div class="slide-overlay"></div>
+          <div class="container slide-content">
+            <p class="slide-kicker"><span class="kicker-dot"></span>Extintores &amp; Segurança · Ribeirão Preto e todo SP</p>
+            <h1 class="slide-title">
+              <span class="h-line"><span>Proteção contra incêndio</span></span>
+              <span class="h-line"><span>com <em>rigor técnico</em> e</span></span>
+              <span class="h-line"><span>alta conformidade.</span></span>
+            </h1>
+            <p class="slide-text">Venda, recarga e manutenção de extintores, mangueiras e sinalização dentro das normas Inmetro e ABNT NBR — com retirada e entrega na sua empresa ou condomínio.</p>
+            <div class="slide-ctas">
+              <a href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20ForceFire%20Extintores." target="_blank" rel="noopener" class="btn btn-whats btn-magnetic">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                <span>Orçamento pelo WhatsApp</span>
+              </a>
+              <a href="#servicos" class="btn btn-ghost btn-magnetic"><span>Conhecer serviços</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="slide slide-light">
+          <div class="slide-bg slide-bg-light">
+            <img src="img/banner002.jpg?v=1" alt="Fileira de extintores de incêndio novos com carga completa" loading="lazy" decoding="async">
+          </div>
+          <div class="slide-overlay slide-overlay-light"></div>
+          <div class="container slide-content">
+            <p class="slide-kicker slide-kicker-dark"><span class="kicker-dot"></span>Homologados pelo Inmetro</p>
+            <h2 class="slide-title slide-title-dark">
+              <span class="h-line"><span>Venda, recarga e</span></span>
+              <span class="h-line"><span><em>manutenção</em> de</span></span>
+              <span class="h-line"><span>extintores.</span></span>
+            </h2>
+            <p class="slide-text slide-text-dark">Água, Pó ABC/BC e CO₂ com selo de conformidade, retirada e entrega no seu endereço e aviso gratuito de vencimento das cargas.</p>
+            <div class="slide-ctas">
+              <a href="#produtos" class="btn btn-primary btn-magnetic"><span>Ver produtos</span></a>
+              <a href="tel:+551636635520" class="btn btn-outline btn-magnetic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+                <span>(16) 3663-5520</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3 -->
+        <article class="slide slide-dark">
+          <div class="slide-bg">
+            <img src="img/banner003.jpg?v=1" alt="Placa de sinalização de rota de fuga em edificação regularizada" loading="lazy" decoding="async">
+          </div>
+          <div class="slide-overlay slide-overlay-red"></div>
+          <div class="container slide-content">
+            <p class="slide-kicker"><span class="kicker-dot"></span>Engenharia &amp; Licenciamento</p>
+            <h2 class="slide-title">
+              <span class="h-line"><span>Regularização de</span></span>
+              <span class="h-line"><span><em>AVCB e CLCB</em> junto ao</span></span>
+              <span class="h-line"><span>Corpo de Bombeiros.</span></span>
+            </h2>
+            <p class="slide-text">Da edificação de pequeno porte (CLCB, até 750 m²) à de grande porte (AVCB): acompanhamos as adequações para o seu imóvel operar regularizado.</p>
+            <div class="slide-ctas">
+              <a href="#licenciamento" class="btn btn-primary btn-magnetic"><span>Regularizar meu imóvel</span></a>
+              <a href="#dicas" class="btn btn-ghost btn-magnetic"><span>AVCB ou CLCB?</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- UI do slider -->
+      <div class="hero-ui container">
+        <div class="hero-dots" id="heroDots" role="group" aria-label="Escolher slide">
+          <button class="hero-dot is-active" aria-label="Ir para o slide 1" aria-current="true"><i>01</i><b><s></s></b></button>
+          <button class="hero-dot" aria-label="Ir para o slide 2"><i>02</i><b><s></s></b></button>
+          <button class="hero-dot" aria-label="Ir para o slide 3"><i>03</i><b><s></s></b></button>
+          <button class="hero-pause" id="heroPause" aria-label="Pausar rotação automática" aria-pressed="false">
+            <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5h3v14H8zM13 5h3v14h-3z"/></svg>
+            <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10-6.5z"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DIFERENCIAIS ============ -->
+    <section class="difs" aria-label="Diferenciais da ForceFire">
+      <div class="container">
+        <div class="difs-grid stagger">
+          <article class="dif reveal">
+            <div class="dif-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.09 12.69A1 1 0 0 0 5 14h4v8l8.91-10.69A1 1 0 0 0 17 10h-4V2Z"/></svg>
+            </div>
+            <h3>Atendimento ágil</h3>
+            <p>Resposta em até 24h e comunicação direta com quem resolve.</p>
+          </article>
+          <article class="dif reveal">
+            <div class="dif-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+            </div>
+            <h3>Retirada &amp; entrega</h3>
+            <p>Buscamos e devolvemos os equipamentos na sua empresa ou condomínio.</p>
+          </article>
+          <article class="dif reveal">
+            <div class="dif-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Equipe qualificada</h3>
+            <p>Serviços executados dentro das normas Inmetro e ABNT NBR do setor.</p>
+          </article>
+          <article class="dif reveal">
+            <div class="dif-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            </div>
+            <h3>Pós-venda &amp; alertas</h3>
+            <p>Avisamos gratuitamente quando a carga dos seus extintores for vencer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE DUPLO DE SERVIÇOS ============ -->
+    <section class="lanes" aria-label="Frentes de atuação da ForceFire">
+      <div class="container lanes-head reveal">
+        <p>Tudo o que a sua edificação precisa, em um só fornecedor</p>
+      </div>
+
+      <!-- Linha 1: esquerda → direita -->
+      <div class="lane" data-dir="ltr">
+        <p class="lane-label"><span>Manutenções &amp; ensaios de campo</span></p>
+        <div class="lane-viewport">
+        <div class="lane-track lane-track-ltr">
+          <div class="lane-group">
+            <figure class="lane-card"><img src="img/banner004.jpg?v=1" alt="" loading="lazy"><figcaption>Inspeção técnica</figcaption></figure>
+            <figure class="lane-card"><img src="img/banner002.jpg?v=1" alt="" loading="lazy"><figcaption>Recarga de extintores</figcaption></figure>
+            <figure class="lane-card"><img src="img/extintor-01.jpg?v=1" alt="" loading="lazy"><figcaption>Teste hidrostático</figcaption></figure>
+            <figure class="lane-card"><img src="img/mangueira-de-incendio-01.jpg?v=1" alt="" loading="lazy"><figcaption>Manutenção de mangueiras</figcaption></figure>
+          </div>
+          <div class="lane-group" aria-hidden="true">
+            <figure class="lane-card"><img src="img/banner004.jpg?v=1" alt="" loading="lazy"><figcaption>Inspeção técnica</figcaption></figure>
+            <figure class="lane-card"><img src="img/banner002.jpg?v=1" alt="" loading="lazy"><figcaption>Recarga de extintores</figcaption></figure>
+            <figure class="lane-card"><img src="img/extintor-01.jpg?v=1" alt="" loading="lazy"><figcaption>Teste hidrostático</figcaption></figure>
+            <figure class="lane-card"><img src="img/mangueira-de-incendio-01.jpg?v=1" alt="" loading="lazy"><figcaption>Manutenção de mangueiras</figcaption></figure>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Linha 2: direita → esquerda -->
+      <div class="lane" data-dir="rtl">
+        <p class="lane-label"><span>Sistemas de proteção &amp; infraestrutura</span></p>
+        <div class="lane-viewport">
+        <div class="lane-track lane-track-rtl">
+          <div class="lane-group">
+            <figure class="lane-card"><img src="img/banner001.jpg?v=1" alt="" loading="lazy"><figcaption>Portas corta-fogo</figcaption></figure>
+            <figure class="lane-card"><img src="img/banner003.jpg?v=1" alt="" loading="lazy"><figcaption>Iluminação de emergência</figcaption></figure>
+            <figure class="lane-card"><img src="img/sinalizacao01.jpg?v=1" alt="" loading="lazy"><figcaption>Sinalização fotoluminescente</figcaption></figure>
+            <figure class="lane-card"><img src="img/componentes-para-hidrantes01.jpg?v=1" alt="" loading="lazy"><figcaption>Rede de hidrantes</figcaption></figure>
+            <figure class="lane-card"><img src="img/abrigos01.jpg?v=1" alt="" loading="lazy"><figcaption>Abrigos &amp; acessórios</figcaption></figure>
+          </div>
+          <div class="lane-group" aria-hidden="true">
+            <figure class="lane-card"><img src="img/banner001.jpg?v=1" alt="" loading="lazy"><figcaption>Portas corta-fogo</figcaption></figure>
+            <figure class="lane-card"><img src="img/banner003.jpg?v=1" alt="" loading="lazy"><figcaption>Iluminação de emergência</figcaption></figure>
+            <figure class="lane-card"><img src="img/sinalizacao01.jpg?v=1" alt="" loading="lazy"><figcaption>Sinalização fotoluminescente</figcaption></figure>
+            <figure class="lane-card"><img src="img/componentes-para-hidrantes01.jpg?v=1" alt="" loading="lazy"><figcaption>Rede de hidrantes</figcaption></figure>
+            <figure class="lane-card"><img src="img/abrigos01.jpg?v=1" alt="" loading="lazy"><figcaption>Abrigos &amp; acessórios</figcaption></figure>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ A EMPRESA ============ -->
+    <section class="section empresa" id="empresa">
+      <div class="container">
+        <div class="empresa-grid">
+          <div class="empresa-copy">
+            <p class="section-kicker reveal">A Empresa</p>
+            <h2 class="section-title reveal">Segurança levada a sério, <br class="d-br">do extintor ao <em>laudo final</em>.</h2>
+            <p class="section-lead reveal">A <strong>ForceFire Extintores e Segurança</strong> atende empresas, comércios e condomínios em Ribeirão Preto, região e todo o Estado de São Paulo. Trabalhamos com venda, recarga e manutenção de equipamentos contra incêndio seguindo o rigor das normas Inmetro e ABNT NBR — e ainda avisamos você, gratuitamente, quando suas cargas estiverem perto de vencer.</p>
+
+            <ul class="stats reveal">
+              <li><b data-count="100" data-suffix="%">0</b><span>conformidade Inmetro</span></li>
+              <li><b data-count="24" data-suffix="h">0</b><span>de resposta</span></li>
+              <li><b data-count="1000" data-suffix="+">0</b><span>clientes atendidos</span></li>
+              <li><b>Grátis</b><span>aviso de vencimento</span></li>
+            </ul>
+          </div>
+
+          <div class="empresa-visual reveal reveal-r">
+            <figure class="empresa-photo glow-card">
+              <img src="img/banner004.jpg?v=1" alt="Técnico de segurança contra incêndio com capacete em planta industrial" loading="lazy" decoding="async">
+              <figcaption>
+                <b>Inmetro &amp; ABNT NBR</b>
+                <span>Serviços dentro das normas do setor</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="beneficios-grid stagger">
+          <article class="beneficio reveal">
+            <div class="beneficio-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.09 12.69A1 1 0 0 0 5 14h4v8l8.91-10.69A1 1 0 0 0 17 10h-4V2Z"/></svg>
+            </div>
+            <h3>Atendimento ágil</h3>
+            <p>Resposta rápida, agendamento ágil e comunicação direta pelo WhatsApp — sem burocracia para resolver a sua pendência.</p>
+            <span class="beneficio-proof">Resposta em até 24h</span>
+          </article>
+          <article class="beneficio reveal">
+            <div class="beneficio-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+            </div>
+            <h3>Retirada &amp; entrega</h3>
+            <p>Buscamos os equipamentos na sua empresa ou condomínio e devolvemos prontos, com selo de conformidade e prazo combinado.</p>
+            <span class="beneficio-proof">Ribeirão Preto · região · SP</span>
+          </article>
+          <article class="beneficio reveal">
+            <div class="beneficio-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Equipe qualificada</h3>
+            <p>Técnicos treinados nas normas do setor, executando cada recarga, teste e instalação com o padrão que a vistoria exige.</p>
+            <span class="beneficio-proof">NBR 12962 · NBR 13434</span>
+          </article>
+          <article class="beneficio reveal">
+            <div class="beneficio-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            </div>
+            <h3>Pós-venda &amp; alertas preventivos</h3>
+            <p>Cadastramos os vencimentos dos seus equipamentos e avisamos com antecedência — você nunca mais opera com extintor vencido.</p>
+            <span class="beneficio-proof">Aviso de vencimento grátis</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section class="section servicos" id="servicos">
+      <div class="container">
+        <p class="section-kicker reveal">Serviços Especializados</p>
+        <h2 class="section-title reveal">Da recarga do extintor <br class="d-br">ao <em>licenciamento da edificação</em>.</h2>
+
+        <!-- Destaque AVCB/CLCB -->
+        <article class="avcb-card reveal reveal-scale" id="licenciamento">
+          <div class="avcb-badge">Engenharia &amp; Regularização</div>
+          <div class="avcb-grid">
+            <div class="avcb-copy">
+              <h3>AVCB &amp; CLCB <br class="d-br"><em>sem dor de cabeça</em> para você</h3>
+              <p>Avaliamos a sua edificação, adequamos extintores, sinalização, iluminação e hidrantes às exigências do Corpo de Bombeiros de São Paulo e acompanhamos o processo até a regularização.</p>
+              <div class="avcb-tipos">
+                <div class="avcb-tipo glow-card">
+                  <b>CLCB</b>
+                  <span>Até 750 m²</span>
+                  <p>Certificado de Licença para edificações de menor porte e baixo risco. Processo simplificado, mais rápido e econômico.</p>
+                </div>
+                <div class="avcb-tipo glow-card">
+                  <b>AVCB</b>
+                  <span>Acima de 750 m²</span>
+                  <p>Auto de Vistoria para edificações de maior porte ou risco, com vistoria presencial do Corpo de Bombeiros. Obrigatório para operar legalmente.</p>
+                </div>
+              </div>
+              <a class="btn btn-danger btn-magnetic" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Preciso%20regularizar%20o%20AVCB%2FCLCB%20do%20meu%20im%C3%B3vel." target="_blank" rel="noopener"><span>Regularizar agora</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <div class="servicos-grid stagger">
+          <article class="servico reveal">
+            <div class="servico-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M12 3v3"/><rect x="8" y="6" width="8" height="15" rx="3"/><path d="M8 10h8"/><path d="M16 7.5c2 .5 3 2 3 4"/></svg>
+            </div>
+            <h3>Recarga e manutenção de extintores</h3>
+            <p>Inspeção, recarga e substituição de componentes para extintores de Água, Pó ABC/BC e CO₂, com selo de conformidade Inmetro.</p>
+          </article>
+          <article class="servico reveal">
+            <div class="servico-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
+            </div>
+            <h3>Teste hidrostático</h3>
+            <p>Ensaio de resistência sob pressão: no cilindro do extintor a cada 5 anos (NBR 12962) e nas mangueiras de hidrante na periodicidade da NBR 12779, com laudo de conformidade.</p>
+          </article>
+          <article class="servico reveal">
+            <div class="servico-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+            </div>
+            <h3>Vistoria e inspeção técnica</h3>
+            <p>Visita técnica para mapear extintores, hidrantes e sinalização da sua edificação e indicar exatamente o que precisa ser adequado.</p>
+          </article>
+          <article class="servico reveal">
+            <div class="servico-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z"/></svg>
+            </div>
+            <h3>Hidrantes e mangueiras</h3>
+            <p>Manutenção de redes de hidrantes e bombas de incêndio, mangueiras dos Tipos 1 a 5 com empatação e teste conforme norma.</p>
+          </article>
+          <article class="servico reveal">
+            <div class="servico-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.09 12.69A1 1 0 0 0 5 14h4v8l8.91-10.69A1 1 0 0 0 17 10h-4V2Z"/></svg>
+            </div>
+            <h3>Sinalização e iluminação de emergência</h3>
+            <p>Placas fotoluminescentes de orientação e salvamento conforme NBR 13434 e luminárias de emergência para rotas de fuga.</p>
+          </article>
+          <article class="servico reveal">
+            <div class="servico-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M15 12h.01"/><path d="M9 2v20"/></svg>
+            </div>
+            <h3>Portas corta-fogo</h3>
+            <p>Fornecimento e instalação de portas corta-fogo para rotas de fuga, escadas de emergência e áreas técnicas da edificação.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUTOS ============ -->
+    <section class="section produtos" id="produtos">
+      <div class="container">
+        <div class="produtos-head">
+          <div>
+            <p class="section-kicker reveal">Produtos</p>
+            <h2 class="section-title reveal">Equipamentos certificados, <br class="d-br"><em>prontos para proteger</em>.</h2>
+            <p class="section-lead reveal">Do extintor ao abrigo de hidrante: linha completa de combate a incêndio, sinalização e acessórios com certificação Inmetro.</p>
+          </div>
+          <div class="show-nav reveal">
+            <button class="show-arrow" id="showPrev" aria-label="Produtos anteriores">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="show-arrow" id="showNext" aria-label="Próximos produtos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="showroom stagger" id="showroom" tabindex="0" role="group" aria-label="Carrossel de produtos — use as setas para navegar">
+          <article class="show-card reveal">
+            <div class="show-media"><img src="img/extintor-01.jpg?v=1" alt="Extintores de incêndio de pó químico e CO₂" loading="lazy" decoding="async"><span class="show-count">Selo Inmetro</span></div>
+            <div class="show-body">
+              <h3>Extintores de <em>incêndio</em></h3>
+              <p>Água Pressurizada, Pó BC e ABC e CO₂ — novos e recarregados com selo de conformidade Inmetro, prontos para a vistoria.</p>
+              <a class="produto-link" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20de%20extintores." target="_blank" rel="noopener">Cotar extintores
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="show-card reveal">
+            <div class="show-media"><img src="img/mangueira-de-incendio-01.jpg?v=1" alt="Mangueira de incêndio predial enrolada com engate" loading="lazy" decoding="async"><span class="show-count">Tipos 1 a 5</span></div>
+            <div class="show-body">
+              <h3>Mangueiras de <em>hidrante</em></h3>
+              <p>Mangueiras prediais e industriais dos Tipos 1 a 5, com serviço de empatação e teste hidrostático conforme NBR 12779.</p>
+              <a class="produto-link" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20de%20mangueiras%20de%20inc%C3%AAndio." target="_blank" rel="noopener">Cotar mangueiras
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="show-card reveal">
+            <div class="show-media"><img src="img/componentes-para-hidrantes01.jpg?v=1" alt="Componente de latão para sistema de hidrante" loading="lazy" decoding="async"><span class="show-count">Linha hidráulica</span></div>
+            <div class="show-body">
+              <h3>Componentes para <em>hidrantes</em></h3>
+              <p>Reduções, chaves de engate Storz, esguichos, adaptadores, tampões e registros para a rede de hidrantes da sua edificação.</p>
+              <a class="produto-link" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20de%20componentes%20para%20hidrantes." target="_blank" rel="noopener">Cotar componentes
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="show-card reveal">
+            <div class="show-media"><img src="img/sinalizacao01.jpg?v=1" alt="Placas de sinalização de emergência e rota de fuga" loading="lazy" decoding="async"><span class="show-count">Fotoluminescente</span></div>
+            <div class="show-body">
+              <h3>Sinalização de <em>segurança</em></h3>
+              <p>Placas fotoluminescentes de orientação, salvamento e equipamentos conforme NBR 13434, além de demarcação de solo.</p>
+              <a class="produto-link" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20de%20sinaliza%C3%A7%C3%A3o%20de%20emerg%C3%AAncia." target="_blank" rel="noopener">Cotar sinalização
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="show-card reveal">
+            <div class="show-media"><img src="img/abrigos01.jpg?v=1" alt="Abrigo metálico vermelho para extintor" loading="lazy" decoding="async"><span class="show-count">Sobrepor / embutir</span></div>
+            <div class="show-body">
+              <h3>Abrigos para <em>equipamentos</em></h3>
+              <p>Abrigos para extintores, mangueiras e hidrantes — simples ou duplos, de sobrepor ou embutir, protegendo seus equipamentos.</p>
+              <a class="produto-link" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20de%20abrigos%20para%20extintores%20e%20hidrantes." target="_blank" rel="noopener">Cotar abrigos
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="show-card reveal">
+            <div class="show-media"><img src="img/suporte01.jpg?v=1" alt="Suporte de parede para extintor portátil" loading="lazy" decoding="async"><span class="show-count">Reposição</span></div>
+            <div class="show-body">
+              <h3>Suportes &amp; <em>acessórios</em></h3>
+              <p>Suportes de parede e de solo, suportes veiculares, capas de proteção e peças de reposição para seus extintores.</p>
+              <a class="produto-link" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Quero%20cota%C3%A7%C3%A3o%20de%20suportes%20e%20acess%C3%B3rios%20para%20extintores." target="_blank" rel="noopener">Cotar acessórios
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <p class="produtos-note reveal">Precisa de um item específico?
+          <a href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Gostaria%20de%20ver%20o%20cat%C3%A1logo%20completo%20de%20produtos." target="_blank" rel="noopener">Peça o catálogo completo no WhatsApp</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SELO DE QUALIDADE (FIRE STAGE) ============ -->
+    <section class="selo" aria-label="Garantia de qualidade ForceFire">
+      <div class="container selo-grid">
+        <div class="selo-copy">
+          <p class="section-kicker selo-kicker reveal">Garantia ForceFire</p>
+          <h2 class="section-title selo-title reveal">Qualidade testada <br class="d-br">para o <em>combate real</em>.</h2>
+          <p class="section-lead selo-lead reveal">Cada equipamento que sai da ForceFire passa por inspeção e recebe o selo de conformidade — porque na hora do incêndio não existe segunda chance.</p>
+          <ul class="selo-list reveal">
+            <li><b>100% Inmetro</b><span>equipamentos e recargas dentro da certificação</span></li>
+            <li><b>Atendimento rápido e humanizado</b><span>gente de verdade cuidando da sua segurança</span></li>
+            <li><b>Normas ABNT NBR</b><span>12962 (manutenção) e 13434 (sinalização)</span></li>
+          </ul>
+        </div>
+        <div class="selo-stage reveal reveal-scale" aria-hidden="true">
+          <div class="stage-flames">
+            <span class="flame f1"></span>
+            <span class="flame f2"></span>
+            <span class="flame f3"></span>
+            <span class="flame f4"></span>
+          </div>
+          <img class="stage-ext" src="img/extintor-01.jpg?v=1" alt="" loading="lazy" decoding="async">
+          <div class="stage-mist"><span></span><span></span><span></span></div>
+          <div class="stage-seal">
+            <span class="seal-ring"></span>
+            <span class="seal-core">100%<i>Inmetro</i></span>
+          </div>
+          <div class="stage-floor"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA INTERMEDIÁRIA ============ -->
+    <section class="cta-band">
+      <div class="container cta-band-inner reveal">
+        <div>
+          <h2>Extintor vencido ou sem CLCB?</h2>
+          <p>Multa, interdição e risco real para vidas e patrimônio. Resolva hoje mesmo, sem burocracia.</p>
+        </div>
+        <a href="#contato" class="btn btn-light btn-magnetic btn-lg"><span>Falar com um especialista</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ FAQ / DICAS ============ -->
+    <section class="section faq" id="dicas">
+      <div class="container faq-grid">
+        <div class="faq-head">
+          <p class="section-kicker reveal">Dicas de Segurança</p>
+          <h2 class="section-title reveal">Como manter minha empresa <em>mais segura</em>?</h2>
+          <p class="section-lead reveal">Respostas rápidas dos nossos técnicos para as dúvidas mais comuns sobre classes de fogo, validades e normas do Corpo de Bombeiros.</p>
+          <a href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20t%C3%A9cnica%20sobre%20seguran%C3%A7a%20contra%20inc%C3%AAndio." target="_blank" rel="noopener" class="btn btn-outline btn-magnetic reveal"><span>Perguntar a um técnico</span></a>
+        </div>
+
+        <div class="accordion stagger" id="faqAccordion">
+          <details class="faq-item reveal">
+            <summary>
+              <span>Qual extintor serve para cada tipo de fogo?</span>
+              <i class="faq-icon"></i>
+            </summary>
+            <div class="faq-body"><p><strong>Água</strong> apaga fogo em materiais sólidos como madeira, papel e tecido (Classe A) — nunca use em equipamentos elétricos energizados. <strong>CO₂</strong> é indicado para líquidos inflamáveis e equipamentos elétricos (Classes B e C) e não deixa resíduos. <strong>Pó químico ABC</strong> é o mais versátil: cobre as três classes e é o queridinho de comércios e escritórios. Na dúvida, fazemos o dimensionamento para você.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <span>De quanto em quanto tempo devo recarregar os extintores?</span>
+              <i class="faq-icon"></i>
+            </summary>
+            <div class="faq-body"><p>A recarga é obrigatória <strong>a cada 12 meses</strong> ou imediatamente após qualquer uso, mesmo parcial. A ForceFire cadastra os vencimentos dos seus equipamentos e <strong>avisa gratuitamente</strong> quando estiver chegando a hora — você não precisa se preocupar em lembrar.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <span>O que é o teste hidrostático e quando é obrigatório?</span>
+              <i class="faq-icon"></i>
+            </summary>
+            <div class="faq-body"><p>É um ensaio que verifica a resistência do equipamento sob pressão. No <strong>cilindro do extintor</strong> é obrigatório <strong>a cada 5 anos</strong> (NBR 12962); nas <strong>mangueiras de hidrante</strong> segue a periodicidade da NBR 12779. Sem ele, o equipamento reprova na vistoria — e pode falhar na hora em que você mais precisa.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <span>Qual a diferença entre AVCB e CLCB para o meu imóvel?</span>
+              <i class="faq-icon"></i>
+            </summary>
+            <div class="faq-body"><p>O <strong>CLCB</strong> atende edificações de menor porte e baixo risco — em geral com área de <strong>até 750 m²</strong> — com processo simplificado. O <strong>AVCB</strong> é exigido para edificações <strong>acima de 750 m²</strong> ou de maior risco e inclui vistoria presencial do Corpo de Bombeiros. Avaliamos o seu caso e indicamos o caminho mais rápido e econômico.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              <span>Vocês retiram e entregam os equipamentos?</span>
+              <i class="faq-icon"></i>
+            </summary>
+            <div class="faq-body"><p>Sim! Fazemos a <strong>retirada e a entrega</strong> dos equipamentos na sua empresa ou condomínio, em Ribeirão Preto, região e todo o Estado de São Paulo, com prazo combinado no orçamento.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BANNER INSTAGRAM ============ -->
+    <section class="insta-band">
+      <div class="container insta-inner reveal">
+        <div class="insta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+        </div>
+        <div class="insta-copy">
+          <h2>Siga <em>@forcefire_extintores</em></h2>
+          <p>Dicas de segurança, bastidores do dia a dia e avisos de atendimento — direto no seu feed.</p>
+        </div>
+        <a href="https://www.instagram.com/forcefire_extintores" target="_blank" rel="noopener" class="btn btn-light btn-magnetic">
+          <span>Seguir no Instagram</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="section contato" id="contato">
+      <div class="container">
+        <p class="section-kicker reveal">Contato</p>
+        <h2 class="section-title reveal">Peça seu orçamento <br class="d-br"><em>sem compromisso</em>.</h2>
+
+        <div class="contato-grid">
+          <!-- Formulário -->
+          <form class="form glow-card reveal" id="quoteForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="fNome">Nome / Empresa *</label>
+                <input type="text" id="fNome" name="nome" placeholder="Seu nome ou empresa" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="fTelefone">WhatsApp *</label>
+                <input type="tel" id="fTelefone" name="telefone" placeholder="(16) 99999-9999" required autocomplete="tel" inputmode="tel" maxlength="16">
+              </div>
+            </div>
+            <div class="field">
+              <label for="fServico">Qual a sua necessidade? *</label>
+              <select id="fServico" name="servico" required>
+                <option value="" selected disabled>Selecione…</option>
+                <option>Recarga / manutenção de extintores</option>
+                <option>Compra de extintores e equipamentos</option>
+                <option>Teste hidrostático</option>
+                <option>Mangueiras e hidrantes</option>
+                <option>Sinalização e iluminação de emergência</option>
+                <option>Portas corta-fogo</option>
+                <option>AVCB / CLCB (regularização)</option>
+                <option>Outro assunto</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fMensagem">Mensagem</label>
+              <textarea id="fMensagem" name="mensagem" rows="4" placeholder="Conte rapidamente o que você precisa (quantidade de extintores, metragem do imóvel, prazo…)"></textarea>
+            </div>
+            <p class="form-error" id="formError" role="alert" hidden>Preencha os campos destacados para continuar.</p>
+            <button type="submit" class="btn btn-whats btn-lg btn-magnetic form-submit">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              <span>Enviar pelo WhatsApp</span>
+            </button>
+            <p class="form-hint">Ao enviar, abriremos o WhatsApp com sua mensagem pronta — sem cadastro, sem spam.</p>
+          </form>
+
+          <!-- Informações -->
+          <aside class="contato-info">
+            <div class="info-card glow-card reveal">
+              <h3>Fale com a ForceFire</h3>
+              <ul class="info-list">
+                <li>
+                  <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
+                  <div><b>Telefone fixo</b><a href="tel:+551636635520">(16) 3663-5520</a></div>
+                </li>
+                <li>
+                  <div class="info-icon info-icon-green"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></div>
+                  <div><b>WhatsApp comercial</b><a href="https://wa.me/5516994088793" target="_blank" rel="noopener">(16) 99408-8793</a></div>
+                </li>
+                <li>
+                  <div class="info-icon info-icon-insta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></div>
+                  <div><b>Instagram</b><a href="https://www.instagram.com/forcefire_extintores" target="_blank" rel="noopener">@forcefire_extintores</a></div>
+                </li>
+                <li>
+                  <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                  <div><b>Área de atendimento</b><span>Ribeirão Preto, região<br>e todo o Estado de São Paulo</span></div>
+                </li>
+              </ul>
+              <p class="cnpj">ForceFire Extintores e Segurança<br>Ribeirão Preto · SP</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="map-band glow-card reveal">
+          <iframe
+            class="map-band-embed"
+            src="https://www.google.com/maps?q=Ribeir%C3%A3o+Preto,+SP&output=embed"
+            title="Mapa da área de atendimento da ForceFire: Ribeirão Preto e região"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="map-band-link" href="https://maps.google.com/?q=Ribeir%C3%A3o+Preto,+SP" target="_blank" rel="noopener">
+            <div class="map-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <b>Ribeirão Preto e região</b>
+              <span>Ver área de atendimento no Google Maps</span>
+            </div>
+            <svg class="map-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="img/logo-ff.svg?v=1" alt="ForceFire Extintores" width="46" height="40" loading="lazy">
+          <span class="brand-text">
+            <b class="brand-name">FORCE<i>FIRE</i></b>
+            <span class="brand-sub">Extintores</span>
+          </span>
+        </div>
+        <p>Venda, recarga e manutenção de equipamentos contra incêndio com rigor técnico, conformidade Inmetro e aviso gratuito de vencimento.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/forcefire_extintores" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+          </a>
+          <a href="https://wa.me/5516994088793" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Links rápidos">
+        <h4>Navegação</h4>
+        <a href="#home">Home</a>
+        <a href="#empresa">A Empresa</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#licenciamento">Licenciamento</a>
+        <a href="#dicas">Dicas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <a href="#servicos">Recarga de extintores</a>
+        <a href="#servicos">Teste hidrostático</a>
+        <a href="#licenciamento">AVCB / CLCB</a>
+        <a href="#servicos">Hidrantes e mangueiras</a>
+        <a href="#servicos">Sinalização de emergência</a>
+        <a href="#servicos">Portas corta-fogo</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="tel:+551636635520">(16) 3663-5520</a>
+        <a href="https://wa.me/5516994088793" target="_blank" rel="noopener">(16) 99408-8793 · WhatsApp</a>
+        <a href="https://www.instagram.com/forcefire_extintores" target="_blank" rel="noopener">@forcefire_extintores</a>
+        <p>Ribeirão Preto, região<br>e todo o Estado de São Paulo</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© <span id="year">2026</span> ForceFire Extintores e Segurança · Serviços conforme Portaria Inmetro e ABNT NBR 12962 / 13434 · Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="whats-float" aria-label="Falar no WhatsApp">
+    <span class="whats-pulse"></span>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/main.js?v=4" defer></script>
+</body>
+</html>
