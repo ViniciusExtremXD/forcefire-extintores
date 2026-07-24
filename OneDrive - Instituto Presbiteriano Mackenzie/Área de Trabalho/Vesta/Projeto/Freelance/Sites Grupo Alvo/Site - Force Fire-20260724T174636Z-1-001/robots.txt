@@ -1,0 +1,5 @@
+# ForceFire Extintores — robots
+User-agent: *
+Allow: /
+
+Sitemap: https://viniciusextremxd.github.io/forcefire-extintores/sitemap.xml

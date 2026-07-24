@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="ForceFire Extintores">
+  <title>ForceFire Extintores</title>
+  <defs>
+    <linearGradient id="ffR" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5233C"/>
+      <stop offset="1" stop-color="#D90429"/>
+    </linearGradient>
+    <!-- Uma seta espessa sobre a aresta superior-direita; girada 120°/240°
+         em torno do centro (50,50) => triângulo de 3 setas em ciclo horário. -->
+    <g id="ffArw">
+      <path d="M52 13.5 L74.6 52.7" stroke="url(#ffR)" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <polygon points="84.6,70 66.9,59.4 84.3,49.4" fill="url(#ffR)"/>
+    </g>
+  </defs>
+  <use href="#ffArw"/>
+  <use href="#ffArw" transform="rotate(120 50 50)"/>
+  <use href="#ffArw" transform="rotate(240 50 50)"/>
+
+  <!-- Chama central -->
+  <path d="M50 24 C54 30.5 60 34.5 60 41.5 C60 47.5 55.5 51 50 51 C44.5 51 40 47.5 40 41.5 C40 37 41.8 34 45 31 C44.5 33.5 45.8 35 47.4 35.4 C46 31 47.2 27.5 50 24 Z" fill="#D90429"/>
+  <path d="M50 33 C52.8 37.5 56 40 56 44 C56 48 53 50.5 50 50.5 C47 50.5 44 48 44 44 C44 41.5 45.3 39.5 47.2 37.6 C47 39.5 47.8 40.5 49 40.8 C48.2 38 48.8 35.5 50 33 Z" fill="#FFFFFF"/>
+
+  <!-- Letras FF serifadas, azul marinho escuro -->
+  <text x="50" y="63.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="15.5" letter-spacing="0.5" fill="#0F172A">FF</text>
+</svg>
