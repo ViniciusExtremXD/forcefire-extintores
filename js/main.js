@@ -13,8 +13,13 @@
   // ?motion=0 força motion desligado; ?motion=1 força ligado (ambos para QA)
   const motionParam = new URLSearchParams(location.search).get('motion');
   const motionOff = motionParam === '0';
-  const prefersReducedMotion = motionOff ||
-    (motionParam !== '1' && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const osReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Decisão do cliente ("usar e abusar do motion"): o motion decorativo
+  // (reveals, contadores, títulos, slider, smooth-scroll) roda sempre — só o
+  // modo de QA (?motion=0) desliga. O canvas de brasas, por ser pesado e
+  // contínuo, ainda respeita prefers-reduced-motion do SO (embersOff).
+  const prefersReducedMotion = motionOff;
+  const embersOff = motionOff || (motionParam !== '1' && osReduced);
   if (motionOff) document.documentElement.classList.add('motion-off');
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
@@ -252,7 +257,7 @@
 
   /* ---------- Brasas (partículas) no hero ---------- */
   const canvas = document.getElementById('embers');
-  if (canvas && !prefersReducedMotion) {
+  if (canvas && !embersOff) {
     const ctx = canvas.getContext('2d');
     let particles = [];
     let running = false;
@@ -559,8 +564,41 @@
     });
   });
 
+  /* ---------- Rolagem suave para "Solicitar Orçamento" e links de âncora ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (history.pushState) {
+          history.pushState(null, '', href);
+        }
+      }
+    });
+  });
+
+  /* ---------- Ano no rodapé ---------- */
+  /* ---------- Smooth-scroll para âncoras internas (CTA, menu, hero) ---------- */
+  // "Solicitar Orçamento" e demais links #ancora rolam suavemente até a seção,
+  // respeitando o offset do header sticky (scroll-padding-top). Só ?motion=0 desliga.
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const hash = link.getAttribute('href');
+    if (!hash || hash.length < 2) return;
+    link.addEventListener('click', e => {
+      const target = document.getElementById(hash.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: motionOff ? 'auto' : 'smooth', block: 'start' });
+      history.pushState(null, '', hash);
+    });
+  });
+
   /* ---------- Ano no rodapé ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 
   onScroll();
 })();
+
