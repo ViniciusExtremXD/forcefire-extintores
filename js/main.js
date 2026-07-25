@@ -94,7 +94,7 @@
     if (nav.classList.contains('is-open')) closeNav(); else openNav();
   });
   nav.addEventListener('click', e => {
-    if (e.target.closest('.nav-link') && nav.classList.contains('is-open')) closeNav();
+    if ((e.target.closest('.nav-link') || e.target.closest('.nav-cta')) && nav.classList.contains('is-open')) closeNav();
   });
   // Esc fecha o menu e devolve o foco ao botão (padrão de diálogo)
   document.addEventListener('keydown', e => {
@@ -103,7 +103,7 @@
   // Contém o Tab dentro do overlay enquanto aberto (foco não vaza para o <main>)
   nav.addEventListener('keydown', e => {
     if (e.key !== 'Tab' || !nav.classList.contains('is-open')) return;
-    const items = nav.querySelectorAll('.nav-link');
+    const items = nav.querySelectorAll('.nav-link, .nav-cta');
     if (!items.length) return;
     const first = items[0], last = items[items.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -112,11 +112,11 @@
   // Cruzar para desktop com o menu aberto: fecha e restaura o scroll do body
   mqDesktop.addEventListener('change', e => { if (e.matches) closeNav(); });
 
-  /* ---------- Hero slider (Infinito: troca a cada 2.4s) ---------- */
+  /* ---------- Hero slider (Infinito: troca a cada 5s) ---------- */
   const hero = document.querySelector('.hero');
   const slides = Array.from(document.querySelectorAll('.hero-slider .slide'));
   const dots = Array.from(document.querySelectorAll('.hero-dot'));
-  const SLIDE_MS = 2400;
+  const SLIDE_MS = 5000;
   let current = 0;
   let timer = null;
 
