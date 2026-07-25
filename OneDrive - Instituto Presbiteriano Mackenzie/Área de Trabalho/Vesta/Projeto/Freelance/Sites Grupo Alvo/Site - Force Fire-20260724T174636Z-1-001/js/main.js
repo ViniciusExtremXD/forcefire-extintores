@@ -112,11 +112,11 @@
   // Cruzar para desktop com o menu aberto: fecha e restaura o scroll do body
   mqDesktop.addEventListener('change', e => { if (e.matches) closeNav(); });
 
-  /* ---------- Hero slider (Infinito: troca a cada 2.5s) ---------- */
+  /* ---------- Hero slider (Infinito: troca a cada 4.5s) ---------- */
   const hero = document.querySelector('.hero');
   const slides = Array.from(document.querySelectorAll('.hero-slider .slide'));
   const dots = Array.from(document.querySelectorAll('.hero-dot'));
-  const SLIDE_MS = 2500;
+  const SLIDE_MS = 4500;
   let current = 0;
   let timer = null;
 
@@ -189,10 +189,15 @@
   if (difCards.length && difsBar) {
     function setDifActive(index) {
       difCards.forEach((card, i) => card.classList.toggle('is-active', i === index));
-      difsBar.style.transform = `translateX(${index * 100}%)`;
+      const targetCard = difCards[index];
+      if (targetCard && difsBar) {
+        difsBar.style.left = targetCard.offsetLeft + 'px';
+        difsBar.style.width = targetCard.offsetWidth + 'px';
+      }
       difIndex = index;
     }
     setDifActive(0);
+    window.addEventListener('resize', () => setDifActive(difIndex));
 
     setInterval(() => {
       if (document.hidden) return;

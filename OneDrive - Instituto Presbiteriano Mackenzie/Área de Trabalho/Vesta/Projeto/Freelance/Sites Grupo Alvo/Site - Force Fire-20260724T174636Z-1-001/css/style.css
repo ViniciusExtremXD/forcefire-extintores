@@ -57,7 +57,7 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-io: cubic-bezier(0.65, 0.05, 0.28, 1);   /* in-out natural p/ carrossel */
   --ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
-  --slide-dur: 2500ms;
+  --slide-dur: 4500ms;
 
   /* Elevação por contorno + sombra curta e densa (não "template soft") */
   --lift: 0 1px 0 rgba(10,10,12,0.04), 0 12px 28px -14px rgba(8,8,10,0.45);
@@ -536,55 +536,69 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 
 /* Micro-animações dos ícones nos diferenciais (A cada 3s / no hover) */
 /* 01. Raio (Atendimento ágil) -> Piscada / Flash */
-.dif:nth-child(2).is-active .dif-icon svg,
-.dif:nth-child(2):hover .dif-icon svg {
-  animation: lightningFlash 0.75s ease-in-out infinite alternate;
+.dif[data-dif="0"].is-active .dif-icon,
+.dif[data-dif="0"]:hover .dif-icon {
+  background: #D90429 !important;
+  box-shadow: 0 0 20px rgba(255, 235, 59, 0.6) !important;
+}
+.dif[data-dif="0"].is-active .dif-icon svg,
+.dif[data-dif="0"]:hover .dif-icon svg {
+  animation: lightningFlash 0.6s ease-in-out infinite alternate;
 }
 @keyframes lightningFlash {
-  0% { opacity: 1; filter: drop-shadow(0 0 2px #ff2e4d); transform: scale(1); }
-  50% { opacity: 0.35; filter: drop-shadow(0 0 14px #ffeb3b); transform: scale(1.18) rotate(-6deg); }
-  100% { opacity: 1; filter: drop-shadow(0 0 18px #ff2e4d); transform: scale(1.08) rotate(6deg); }
+  0% { opacity: 1; filter: drop-shadow(0 0 4px #ffff00); transform: scale(1); }
+  50% { opacity: 0.25; filter: drop-shadow(0 0 16px #ffffff); transform: scale(1.22) rotate(-8deg); }
+  100% { opacity: 1; filter: drop-shadow(0 0 20px #ff2e4d); transform: scale(1.1) rotate(8deg); }
 }
 
 /* 02. Caminhão (Retirada & entrega) -> Tremidinha / Movimento de andar */
-.dif:nth-child(3).is-active .dif-icon svg,
-.dif:nth-child(3):hover .dif-icon svg {
-  animation: truckDrive 0.45s ease-in-out infinite;
+.dif[data-dif="1"].is-active .dif-icon,
+.dif[data-dif="1"]:hover .dif-icon {
+  background: #D90429 !important;
+}
+.dif[data-dif="1"].is-active .dif-icon svg,
+.dif[data-dif="1"]:hover .dif-icon svg {
+  animation: truckDrive 0.4s ease-in-out infinite;
 }
 @keyframes truckDrive {
   0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(2.5px, -2px) rotate(1.5deg); }
-  50% { transform: translate(-1.5px, 1px) rotate(-1deg); }
-  75% { transform: translate(3px, -1px) rotate(2deg); }
+  25% { transform: translate(3px, -2px) rotate(2deg); }
+  50% { transform: translate(-2px, 1.5px) rotate(-1.5deg); }
+  75% { transform: translate(3.5px, -1px) rotate(2.5deg); }
   100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 /* 03. Escudo (Equipe qualificada) -> Brilho Metallic Aura */
-.dif:nth-child(4).is-active .dif-icon,
-.dif:nth-child(4):hover .dif-icon {
+.dif[data-dif="2"].is-active .dif-icon,
+.dif[data-dif="2"]:hover .dif-icon {
+  background: #D90429 !important;
   animation: shieldGlow 1.2s ease-in-out infinite alternate;
 }
-.dif:nth-child(4).is-active .dif-icon svg,
-.dif:nth-child(4):hover .dif-icon svg {
-  filter: drop-shadow(0 0 8px #ffffff) drop-shadow(0 0 16px var(--red-light));
+.dif[data-dif="2"].is-active .dif-icon svg,
+.dif[data-dif="2"]:hover .dif-icon svg {
+  filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #ffffff);
 }
 @keyframes shieldGlow {
-  0% { box-shadow: 0 0 4px rgba(255,255,255,0.2); }
-  100% { box-shadow: 0 0 26px rgba(239,35,60,0.85), inset 0 0 12px rgba(255,255,255,0.7); }
+  0% { box-shadow: 0 0 4px rgba(255,255,255,0.3); }
+  100% { box-shadow: 0 0 30px rgba(255,255,255,0.9), 0 0 15px rgba(239,35,60,0.9); }
 }
 
 /* 04. Sininho (Pós-venda & alertas) -> Chacoalhada / Ring */
-.dif:nth-child(5).is-active .dif-icon svg,
-.dif:nth-child(5):hover .dif-icon svg {
-  animation: bellRing 0.55s ease-in-out infinite;
+.dif[data-dif="3"].is-active .dif-icon,
+.dif[data-dif="3"]:hover .dif-icon {
+  background: #D90429 !important;
+}
+.dif[data-dif="3"].is-active .dif-icon svg,
+.dif[data-dif="3"]:hover .dif-icon svg {
+  animation: bellRing 0.5s ease-in-out infinite;
   transform-origin: top center;
 }
 @keyframes bellRing {
   0% { transform: rotate(0deg); }
-  20% { transform: rotate(18deg); }
-  40% { transform: rotate(-15deg); }
-  60% { transform: rotate(10deg); }
-  80% { transform: rotate(-6deg); }
+  20% { transform: rotate(22deg); }
+  40% { transform: rotate(-18deg); }
+  60% { transform: rotate(12deg); }
+  80% { transform: rotate(-8deg); }
   100% { transform: rotate(0deg); }
 }
 
