@@ -167,9 +167,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 
 /* Marca: ícone + wordmark com respiro e divisor — logo aumentada e destacada */
 .brand { display: flex; align-items: center; gap: 16px; padding-right: 4px; }
-.brand-icon { height: 64px; width: auto; flex: 0 0 auto; transition: height 0.35s var(--ease-out), transform 0.35s var(--ease-spring); }
+/* A arte oficial tem margem interna própria, então a altura aqui é maior do
+   que a marca aparenta em tela — calibrado para equilibrar com o wordmark. */
+.brand-icon { height: 72px; width: auto; flex: 0 0 auto; transition: height 0.35s var(--ease-out), transform 0.35s var(--ease-spring); }
 .brand-icon:hover { transform: scale(1.06); }
-.header.is-scrolled .brand-icon { height: 50px; }
+.header.is-scrolled .brand-icon { height: 56px; }
 .brand-text {
   display: flex; flex-direction: column; line-height: 1;
   padding-left: 16px; border-left: 1.5px solid var(--line);
@@ -1195,8 +1197,8 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
   .topbar-insta { display: none; }
 
   /* Header / Brand */
-  .brand-icon { height: 48px; }
-  .header.is-scrolled .brand-icon { height: 42px; }
+  .brand-icon { height: 54px; }
+  .header.is-scrolled .brand-icon { height: 46px; }
   .brand-text { padding-left: 12px; }
   .brand-name { font-size: 18px; }
   .header-cta { display: none; }
