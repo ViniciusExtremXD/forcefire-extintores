@@ -942,16 +942,21 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 .selo-list b { display: block; color: #fff; font-family: var(--font-head); font-size: 15.5px; }
 .selo-list span { font-size: 13.5px; color: var(--text-inv-mut); }
 
-.selo-stage { position: relative; min-height: 440px; display: flex; align-items: flex-end; justify-content: center; }
+.selo-stage { position: relative; min-height: 580px; display: flex; align-items: flex-end; justify-content: center; }
 .stage-floor { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); width: 78%; height: 46px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(217,4,41,0.35), rgba(6,6,8,0) 70%); filter: blur(6px); }
-.stage-flames { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); width: 300px; height: 320px; filter: blur(16px); opacity: 0.9; }
+/* As chamas são desenhadas num palco de 300px; escalamos o conjunto a partir
+   da base para acompanhar o extintor ampliado, sem remexer cada chama. */
+.stage-flames { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%) scale(1.5); transform-origin: bottom center; width: 300px; height: 320px; filter: blur(16px); opacity: 0.9; }
 .flame { position: absolute; bottom: 0; border-radius: 50% 50% 22% 22% / 62% 62% 30% 30%; mix-blend-mode: screen; transform-origin: bottom center; }
 .flame.f1 { left: 10px; width: 88px; height: 190px; background: linear-gradient(0deg, var(--red) 5%, var(--fire-orange) 55%, transparent 95%); animation: flameDance 2.3s ease-in-out infinite alternate; }
 .flame.f2 { left: 84px; width: 120px; height: 260px; background: linear-gradient(0deg, var(--red-dark) 0%, var(--red-light) 45%, #fbbf24 80%, transparent 97%); animation: flameDance 1.9s ease-in-out 0.3s infinite alternate; }
 .flame.f3 { left: 186px; width: 92px; height: 210px; background: linear-gradient(0deg, var(--red) 5%, var(--fire-orange) 60%, transparent 95%); animation: flameDance 2.6s ease-in-out 0.6s infinite alternate; }
 .flame.f4 { left: 120px; width: 60px; height: 150px; background: linear-gradient(0deg, #fbbf24 10%, #fde68a 60%, transparent 95%); animation: flameDance 1.6s ease-in-out 0.15s infinite alternate; }
 @keyframes flameDance { from { transform: scaleY(1) scaleX(1) skewX(0deg); } 33% { transform: scaleY(1.12) scaleX(0.94) skewX(2.5deg); } 66% { transform: scaleY(0.92) scaleX(1.05) skewX(-2deg); } to { transform: scaleY(1.08) scaleX(0.97) skewX(1.5deg); } }
-.stage-ext { position: relative; z-index: 2; width: min(250px, 62%); border-radius: var(--r-lg); border: 1px solid var(--hair-dark); box-shadow: 0 30px 70px rgba(0,0,0,0.6); margin-bottom: 26px; animation: stageFloat 5s ease-in-out infinite alternate; }
+/* Contêiner da foto: define o tamanho e flutua — o selo, ancorado nele,
+   acompanha o movimento como se estivesse colado na imagem. */
+.stage-photo { position: relative; z-index: 4; width: min(440px, 94%); margin-bottom: 26px; animation: stageFloat 5s ease-in-out infinite alternate; }
+.stage-ext { display: block; width: 100%; height: auto; border-radius: var(--r-lg); border: 1px solid var(--hair-dark); box-shadow: 0 34px 80px rgba(0,0,0,0.65); }
 @keyframes stageFloat { from { transform: translateY(0); } to { transform: translateY(-10px); } }
 .stage-mist { position: absolute; inset: auto 0 0 0; height: 120px; z-index: 3; pointer-events: none; }
 .stage-mist span { position: absolute; bottom: 0; width: 190px; height: 74px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(240,242,246,0.28), transparent 70%); filter: blur(18px); }
@@ -959,7 +964,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 .stage-mist span:nth-child(2) { left: 34%; bottom: -12px; width: 240px; animation: mistDrift 9s ease-in-out 1s infinite alternate-reverse; }
 .stage-mist span:nth-child(3) { right: 4%; animation: mistDrift 8s ease-in-out 0.5s infinite alternate; }
 @keyframes mistDrift { from { transform: translateX(-16px); opacity: 0.55; } to { transform: translateX(22px); opacity: 0.95; } }
-.stage-seal { position: absolute; z-index: 4; right: 8%; top: 10%; width: 112px; height: 112px; display: grid; place-items: center; animation: stageFloat 4s ease-in-out 0.6s infinite alternate; }
+/* Selo carimbado na quina inferior esquerda da FOTO (transbordando um pouco
+   para fora, como um lacre aplicado sobre a imagem). */
+.stage-seal { position: absolute; z-index: 5; left: 0; bottom: 0; transform: translate(-30%, 30%); width: 124px; height: 124px; display: grid; place-items: center; }
 .seal-ring { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(#e2e8f0, #64748b, #f8fafc, #94a3b8, #e2e8f0, #475569, #f1f5f9, #e2e8f0); box-shadow: 0 14px 34px rgba(0,0,0,0.55), inset 0 2px 6px rgba(255,255,255,0.6); animation: spinSlow 26s linear infinite; }
 @keyframes spinSlow { to { transform: rotate(360deg); } }
 .seal-core { position: relative; z-index: 1; width: 88px; height: 88px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 32% 28%, var(--ink-800), #050506); border: 1.5px dashed rgba(245,158,11,0.55); color: #fbbf24; font-family: var(--font-head); font-weight: 800; font-size: 21px; letter-spacing: -0.01em; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
@@ -1241,9 +1248,9 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
 
   /* Selo */
   .selo { padding: 64px 0; }
-  .selo-stage { min-height: 340px; }
-  .stage-flames { width: 240px; height: 260px; }
-  .stage-seal { right: 2%; top: 4%; width: 90px; height: 90px; }
+  .selo-stage { min-height: 440px; }
+  .stage-flames { width: 240px; height: 260px; transform: translateX(-50%) scale(1.35); }
+  .stage-seal { width: 96px; height: 96px; transform: translate(-24%, 24%); }
   .seal-core { width: 70px; height: 70px; font-size: 17px; }
   .seal-core i { font-size: 9px; }
   .selo-list li { padding: 16px 16px 16px 36px; }
@@ -1338,10 +1345,10 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
 
   /* Selo */
   .selo { padding: 52px 0; }
-  .selo-stage { min-height: 300px; }
-  .stage-flames { width: 200px; height: 220px; }
-  .stage-ext { width: min(200px, 55%); }
-  .stage-seal { width: 78px; height: 78px; right: 0; top: 2%; }
+  .selo-stage { min-height: 380px; }
+  .stage-flames { width: 200px; height: 220px; transform: translateX(-50%) scale(1.25); }
+  .stage-photo { width: min(300px, 88%); }
+  .stage-seal { width: 78px; height: 78px; transform: translate(-20%, 20%); }
   .seal-core { width: 62px; height: 62px; font-size: 15px; }
   .seal-core i { font-size: 8px; }
   .selo-list li { padding: 14px 14px 14px 32px; }
