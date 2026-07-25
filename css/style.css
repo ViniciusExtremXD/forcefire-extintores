@@ -245,6 +245,47 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 }
 .btn:hover::after { animation: btnSheen 0.85s var(--ease-out); }
 @keyframes btnSheen { from { left: -140%; } to { left: 170%; } }
+
+/* Brilho diagonal que varre UMA VEZ a palavra de destaque (em) quando ela
+   aparece — mesma ideia do sheen dos botões, mas recortado no próprio texto
+   via background-clip:text. Em repouso (antes/depois da animação) o gradiente
+   fica 100% "currentColor", então não sobra nenhum traço de corte/faixa —
+   só acontece durante o lampejo. Aplicado como classe utilitária nos vários
+   `em` do site, cada um mantendo sua própria cor (via currentColor). */
+.em-shine {
+  background-image: linear-gradient(115deg, currentColor 45%, #fff 50%, currentColor 55%);
+  background-size: 300% 100%;
+  /* sem repeat: por padrão o fundo tiled repetia o degradê a cada 150 pontos
+     de background-position, e a posição de "repouso" que eu tinha escolhido
+     caía bem numa dessas repetições — a faixa nunca sumia de vez. Sem repeat,
+     0% e 100% são comprovadamente limpos (calibrado visualmente), com a
+     faixa de brilho passando pelo meio do trajeto entre os dois. */
+  background-repeat: no-repeat;
+  background-position: 0% 0; /* repouso limpo, antes da 1ª varredura */
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes emShine {
+  0% { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}
+/* O brilho só dispara quando a palavra REALMENTE aparece pro usuário — não
+   na carga da página. Nos títulos com scroll-reveal (.is-visible, aplicada
+   pelo IntersectionObserver), dispara logo depois do texto assentar. No
+   hero, dispara só quando o slide correspondente fica ativo, com atraso
+   maior pra esperar a linha terminar de subir (lineUp) antes de brilhar. */
+.is-visible .em-shine {
+  animation: emShine 1.3s var(--ease-out) 1 both;
+  animation-delay: 0.55s;
+}
+.slide.is-active .em-shine {
+  animation: emShine 1.3s var(--ease-out) 1 both;
+  animation-delay: 1.5s;
+}
+/* !important de propósito: .slide.is-active .em-shine tem 3 classes de
+   especificidade (maior que as 2 de .motion-off .em-shine), então sem isso
+   o interruptor de QA perderia a briga e a animação continuaria rodando. */
+.motion-off .em-shine { animation: none !important; background-position: 100% 0 !important; }
 .btn > * { position: relative; z-index: 1; }
 .btn svg { width: 18px; height: 18px; flex: 0 0 auto; transition: transform 0.3s var(--ease-out); }
 .btn:active { transform: scale(0.97); }
@@ -370,21 +411,21 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
   letter-spacing: -0.035em; margin-bottom: 22px;
 }
 .slide-title em {
+  /* cor-base: usada como fallback (browsers sem background-clip:text) e
+     como currentColor no gradiente de brilho do .em-shine — não sobrescrever
+     background aqui, é o .em-shine que cuida disso. */
   font-style: normal;
   color: var(--red-light);
-  background: none;
-  -webkit-background-clip: initial; background-clip: initial;
-  -webkit-text-fill-color: var(--red-light);
   padding-bottom: 0;
 }
 .slide-title-dark { color: var(--text); }
-.slide-title-dark em {
-  color: var(--red);
-  background: none;
-  -webkit-background-clip: initial; background-clip: initial;
-  -webkit-text-fill-color: var(--red);
-}
-.h-line { display: block; overflow: hidden; }
+.slide-title-dark em { color: var(--red); }
+/* padding-bottom dá espaço pro overflow:hidden não cortar descendentes
+   (g, p, q, ç...) — a linha usa line-height:1.12 (herdado de h1-h4), mais
+   apertado que o espaço real que esses caracteres precisam. A margin-bottom
+   negativa cancela esse respiro extra, então o espaçamento entre as 3 linhas
+   do título continua igual. */
+.h-line { display: block; overflow: hidden; padding-bottom: 0.16em; margin-bottom: -0.16em; }
 .h-line > span { display: block; transform: translateY(112%); }
 
 .slide-text {
@@ -653,13 +694,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
   max-width: 760px; margin-bottom: 18px; text-wrap: balance;
   color: var(--text);
 }
-.section-title em {
-  font-style: normal;
-  color: var(--red);
-  background: none;
-  -webkit-background-clip: initial; background-clip: initial;
-  -webkit-text-fill-color: var(--red);
-}
+.section-title em { font-style: normal; color: var(--red); }
 .d-br { display: none; }
 @media (min-width: 721px) { .d-br { display: inline; } }
 .section-lead { max-width: 640px; color: var(--text-soft); font-size: 17px; margin-bottom: 20px; }
@@ -799,13 +834,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 }
 .avcb-badge::before { content: ""; width: 24px; height: 2px; background: var(--amber); }
 .avcb-copy h3 { color: #fff; font-size: clamp(24px, 2.7vw, 34px); font-weight: 800; margin-bottom: 14px; max-width: 620px; text-wrap: balance; }
-.avcb-copy h3 em {
-  font-style: normal;
-  color: var(--red-light);
-  background: none;
-  -webkit-background-clip: initial; background-clip: initial;
-  -webkit-text-fill-color: var(--red-light);
-}
+.avcb-copy h3 em { font-style: normal; color: var(--red-light); }
 .avcb-copy > p { color: #c4c9d2; max-width: 640px; margin-bottom: 30px; }
 .avcb-tipos { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 34px; max-width: 760px; }
 .avcb-tipo {
