@@ -112,24 +112,24 @@
   // Cruzar para desktop com o menu aberto: fecha e restaura o scroll do body
   mqDesktop.addEventListener('change', e => { if (e.matches) closeNav(); });
 
-  /* ---------- Hero slider ---------- */
+  /* ---------- Hero slider (Infinito: troca a cada 2.4s) ---------- */
   const hero = document.querySelector('.hero');
   const slides = Array.from(document.querySelectorAll('.hero-slider .slide'));
   const dots = Array.from(document.querySelectorAll('.hero-dot'));
-  const SLIDE_MS = 7000;
+  const SLIDE_MS = 2400;
   let current = 0;
   let timer = null;
 
   function restartDot(dot) {
     const bar = dot.querySelector('b s');
+    if (!bar) return;
     bar.style.animation = 'none';
-    void bar.offsetWidth; // força reflow para reiniciar a animação
+    void bar.offsetWidth; // força reflow
     bar.style.animation = '';
   }
 
-  function goTo(index, fromUser) {
+  function goTo(index) {
     const next = (index + slides.length) % slides.length;
-    if (next === current && fromUser) return;
     slides[current].classList.remove('is-active');
     dots[current].classList.remove('is-active');
     dots[current].removeAttribute('aria-current');
@@ -142,76 +142,15 @@
     schedule();
   }
 
-  // Estados de pausa: botão do usuário (persistente), hover, foco e aba oculta
-  let userPaused = false;
-  let hoverPaused = false;
-  let focusPaused = false;
-
   function schedule() {
     clearTimeout(timer);
-    if (prefersReducedMotion || userPaused || hoverPaused || focusPaused) return;
+    if (prefersReducedMotion) return;
     timer = setTimeout(() => goTo(current + 1), SLIDE_MS);
   }
 
-  function pauseAuto() {
-    clearTimeout(timer);
-    hero.classList.add('is-paused');
-  }
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
-  // Reinicia a barra do dot junto com o timer para não dessincronizar
-  function resumeAuto() {
-    if (userPaused || hoverPaused || focusPaused) return;
-    hero.classList.remove('is-paused');
-    restartDot(dots[current]);
-    schedule();
-  }
-
-  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i, true)));
-
-  // Botão pausar/retomar (WCAG 2.2.2 — visível também no touch/teclado)
-  const pauseBtn = document.getElementById('heroPause');
-  if (prefersReducedMotion) {
-    pauseBtn.hidden = true;
-  } else {
-    // Nome acessível fixo + estado só via aria-pressed (padrão ARIA APG para
-    // toggle) — não alternar o aria-label junto, que gera anúncio contraditório.
-    pauseBtn.addEventListener('click', () => {
-      userPaused = !userPaused;
-      pauseBtn.classList.toggle('is-paused', userPaused);
-      pauseBtn.setAttribute('aria-pressed', String(userPaused));
-      if (userPaused) {
-        pauseAuto();
-      } else {
-        // O próprio botão mantém o foco dentro do hero; sem limpar focusPaused,
-        // resumeAuto() retornaria cedo e a rotação nunca voltaria (teclado/touch).
-        focusPaused = false;
-        resumeAuto();
-      }
-    });
-  }
-
-  // Pausa no hover (desktop), no foco via teclado e quando a aba perde o foco
-  if (finePointer) {
-    hero.addEventListener('mouseenter', () => { hoverPaused = true; pauseAuto(); });
-    hero.addEventListener('mouseleave', () => { hoverPaused = false; resumeAuto(); });
-  }
-  hero.addEventListener('focusin', e => {
-    // O botão de pausa é o próprio controle — focá-lo não deve contar como
-    // "pausa por foco", senão o clique de retomar não conseguiria retomar.
-    if (e.target.closest && e.target.closest('#heroPause')) return;
-    focusPaused = true;
-    pauseAuto();
-  });
-  hero.addEventListener('focusout', e => {
-    if (hero.contains(e.relatedTarget)) return;
-    focusPaused = false;
-    resumeAuto();
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) pauseAuto(); else resumeAuto();
-  });
-
-  // Swipe no mobile (só troca slide se o gesto for mais horizontal que vertical)
+  // Swipe no mobile
   let touchX = null, touchY = null;
   hero.addEventListener('touchstart', e => {
     touchX = e.touches[0].clientX;
@@ -221,26 +160,12 @@
     if (touchX === null) return;
     const dx = e.changedTouches[0].clientX - touchX;
     const dy = e.changedTouches[0].clientY - touchY;
-    if (Math.abs(dx) > 46 && Math.abs(dx) > Math.abs(dy)) goTo(current + (dx < 0 ? 1 : -1), true);
+    if (Math.abs(dx) > 46 && Math.abs(dx) > Math.abs(dy)) goTo(current + (dx < 0 ? 1 : -1));
     touchX = touchY = null;
   }, { passive: true });
 
-  // Teclado — ignora campos de formulário e só age com o hero na tela
-  document.addEventListener('keydown', e => {
-    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-    const t = e.target;
-    if (t instanceof Element && (t.closest('input, textarea, select') || t.isContentEditable)) return;
-    const r = hero.getBoundingClientRect();
-    if (r.bottom < 0 || r.top > window.innerHeight) return;
-    goTo(current + (e.key === 'ArrowLeft' ? -1 : 1), true);
-  });
-
   schedule();
 
-  // O 1º slide já nasce com is-active no HTML (pra funcionar sem JS), então
-  // a transição de entrada (crossfade + leve escala) nunca disparava nele.
-  // Força o estado "antes" via inline style e libera em dois frames seguidos
-  // para tocar a mesma transição também na primeira carga da página.
   if (!prefersReducedMotion) {
     const firstSlide = slides[current];
     firstSlide.style.transition = 'none';
@@ -254,6 +179,81 @@
       });
     });
   }
+
+  /* ---------- Diferenciais (Alterna a cada 3s + barra vermelha deslizante + micro-animação) ---------- */
+  const difGrid = document.getElementById('difsGrid');
+  const difCards = Array.from(document.querySelectorAll('.dif'));
+  const difsBar = document.getElementById('difsBar');
+  let difIndex = 0;
+
+  if (difCards.length && difsBar) {
+    function setDifActive(index) {
+      difCards.forEach((card, i) => card.classList.toggle('is-active', i === index));
+      const targetCard = difCards[index];
+      if (targetCard && difsBar) {
+        difsBar.style.left = targetCard.offsetLeft + 'px';
+        difsBar.style.width = targetCard.offsetWidth + 'px';
+      }
+      difIndex = index;
+    }
+    setDifActive(0);
+    window.addEventListener('resize', () => setDifActive(difIndex));
+
+    setInterval(() => {
+      if (document.hidden) return;
+      setDifActive((difIndex + 1) % difCards.length);
+    }, 3000);
+
+    difCards.forEach((card, i) => {
+      card.addEventListener('mouseenter', () => setDifActive(i));
+    });
+  }
+
+  /* ---------- Rolagem ultra suave para navegação e links ---------- */
+  // Implementação própria via requestAnimationFrame: o scroll nativo
+  // (window.scrollTo({behavior:'smooth'})) delega a animação ao navegador, que
+  // por padrão RESPEITA o "reduzir movimento" do sistema operacional e some
+  // com a suavidade (some navegadores até pulam direto pro destino) mesmo
+  // quando o site pede motion sempre ativo. Fazendo a interpolação nós mesmos
+  // (easeOutCubic, duração proporcional à distância) a rolagem fica sempre
+  // fluida, controlada e imune a essa configuração do SO/navegador.
+  function smoothScrollTo(targetY) {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    if (Math.abs(distance) < 2) return;
+    const duration = motionOff ? 0 : Math.min(1400, Math.max(550, Math.abs(distance) * 0.16));
+    if (duration <= 0) { window.scrollTo(0, targetY); return; }
+    const startTime = performance.now();
+    const ease = t => 1 - Math.pow(1 - t, 3); // easeOutCubic
+    (function step(now) {
+      const t = Math.min((now - startTime) / duration, 1);
+      window.scrollTo({ top: startY + distance * ease(t), left: 0, behavior: 'auto' });
+      if (t < 1) requestAnimationFrame(step);
+    })(startTime);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const hash = link.getAttribute('href');
+    if (!hash || hash === '#') return;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      // Clicar no nome/logo da marca sempre volta ao topo absoluto — revela a
+      // topbar inteira, sem parar por baixo do header sticky.
+      if (hash === '#home') {
+        smoothScrollTo(0);
+        if (history.pushState) history.pushState(null, '', '#home');
+        return;
+      }
+      const target = document.querySelector(hash);
+      if (target) {
+        const topbarH = document.querySelector('.topbar')?.offsetHeight || 40;
+        const headerH = document.getElementById('header')?.offsetHeight || 70;
+        const targetPos = target.getBoundingClientRect().top + window.scrollY - (topbarH + headerH + 10);
+        smoothScrollTo(Math.max(0, targetPos));
+        if (history.pushState) history.pushState(null, '', hash);
+      }
+    });
+  });
 
   /* ---------- Brasas (partículas) no hero ---------- */
   const canvas = document.getElementById('embers');
@@ -564,40 +564,9 @@
     });
   });
 
-  /* ---------- Rolagem suave para "Solicitar Orçamento" e links de âncora ---------- */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const href = anchor.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (history.pushState) {
-          history.pushState(null, '', href);
-        }
-      }
-    });
-  });
-
   /* ---------- Ano no rodapé ---------- */
-  /* ---------- Smooth-scroll para âncoras internas (CTA, menu, hero) ---------- */
-  // "Solicitar Orçamento" e demais links #ancora rolam suavemente até a seção,
-  // respeitando o offset do header sticky (scroll-padding-top). Só ?motion=0 desliga.
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    const hash = link.getAttribute('href');
-    if (!hash || hash.length < 2) return;
-    link.addEventListener('click', e => {
-      const target = document.getElementById(hash.slice(1));
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: motionOff ? 'auto' : 'smooth', block: 'start' });
-      history.pushState(null, '', hash);
-    });
-  });
-
-  /* ---------- Ano no rodapé ---------- */
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   onScroll();
 })();
