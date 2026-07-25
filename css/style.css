@@ -928,7 +928,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
   mask-image: linear-gradient(115deg, #000 26%, transparent 72%);
   pointer-events: none;
 }
-.selo-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+.selo-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
 .selo-kicker { color: #fca5a5; }
 .selo-title { color: #fff; }
 .selo-title em { color: var(--red-light); }
@@ -944,11 +944,13 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 .selo-list b { display: block; color: #fff; font-family: var(--font-head); font-size: 15.5px; }
 .selo-list span { font-size: 13.5px; color: var(--text-inv-mut); }
 
-.selo-stage { position: relative; min-height: 580px; display: flex; align-items: flex-end; justify-content: center; }
+.selo-stage { position: relative; min-height: 470px; display: flex; align-items: center; justify-content: center; }
 .stage-floor { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); width: 78%; height: 46px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(217,4,41,0.35), rgba(6,6,8,0) 70%); filter: blur(6px); }
 /* As chamas são desenhadas num palco de 300px; escalamos o conjunto a partir
    da base para acompanhar o extintor ampliado, sem remexer cada chama. */
-.stage-flames { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%) scale(1.5); transform-origin: bottom center; width: 300px; height: 320px; filter: blur(16px); opacity: 0.9; }
+/* Brasa atrás do produto: com a foto recortada, as chamas aparecem POR TRÁS
+   dos extintores — então ficam discretas (glow), não uma névoa por cima. */
+.stage-flames { position: absolute; left: 50%; bottom: 18%; transform: translateX(-50%) scale(1.35); transform-origin: bottom center; width: 300px; height: 320px; filter: blur(26px); opacity: 0.42; }
 .flame { position: absolute; bottom: 0; border-radius: 50% 50% 22% 22% / 62% 62% 30% 30%; mix-blend-mode: screen; transform-origin: bottom center; }
 .flame.f1 { left: 10px; width: 88px; height: 190px; background: linear-gradient(0deg, var(--red) 5%, var(--fire-orange) 55%, transparent 95%); animation: flameDance 2.3s ease-in-out infinite alternate; }
 .flame.f2 { left: 84px; width: 120px; height: 260px; background: linear-gradient(0deg, var(--red-dark) 0%, var(--red-light) 45%, #fbbf24 80%, transparent 97%); animation: flameDance 1.9s ease-in-out 0.3s infinite alternate; }
@@ -957,10 +959,20 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 @keyframes flameDance { from { transform: scaleY(1) scaleX(1) skewX(0deg); } 33% { transform: scaleY(1.12) scaleX(0.94) skewX(2.5deg); } 66% { transform: scaleY(0.92) scaleX(1.05) skewX(-2deg); } to { transform: scaleY(1.08) scaleX(0.97) skewX(1.5deg); } }
 /* Contêiner da foto: define o tamanho e flutua — o selo, ancorado nele,
    acompanha o movimento como se estivesse colado na imagem. */
-.stage-photo { position: relative; z-index: 4; width: min(440px, 94%); margin-bottom: 26px; animation: stageFloat 5s ease-in-out infinite alternate; }
-.stage-ext { display: block; width: 100%; height: auto; border-radius: var(--r-lg); border: 1px solid var(--hair-dark); box-shadow: 0 34px 80px rgba(0,0,0,0.65); }
+.stage-photo { position: relative; z-index: 4; width: min(660px, 100%); margin-bottom: 34px; animation: stageFloat 5s ease-in-out infinite alternate; }
+/* A foto tem fundo recortado (PNG/WebP com alfa): nada de moldura, borda ou
+   cartão branco — a sombra segue o contorno real do produto (drop-shadow),
+   e não uma caixa retangular, para o produto assentar no preto da seção. */
+.stage-ext {
+  display: block; width: 100%; height: auto;
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,0.8)) drop-shadow(0 2px 10px rgba(217,4,41,0.22));
+  /* A foto original é cortada na base; sobre o preto isso vira uma linha reta
+     dura. A máscara dissolve o rodapé da imagem no fundo da seção. */
+  -webkit-mask-image: linear-gradient(180deg, #000 86%, rgba(0,0,0,0.45) 95%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 86%, rgba(0,0,0,0.45) 95%, transparent 100%);
+}
 @keyframes stageFloat { from { transform: translateY(0); } to { transform: translateY(-10px); } }
-.stage-mist { position: absolute; inset: auto 0 0 0; height: 120px; z-index: 3; pointer-events: none; }
+.stage-mist { position: absolute; inset: auto 0 0 0; height: 120px; z-index: 3; pointer-events: none; opacity: 0.4; }
 .stage-mist span { position: absolute; bottom: 0; width: 190px; height: 74px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(240,242,246,0.28), transparent 70%); filter: blur(18px); }
 .stage-mist span:nth-child(1) { left: 6%; animation: mistDrift 7s ease-in-out infinite alternate; }
 .stage-mist span:nth-child(2) { left: 34%; bottom: -12px; width: 240px; animation: mistDrift 9s ease-in-out 1s infinite alternate-reverse; }
@@ -1349,7 +1361,7 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
   .selo { padding: 52px 0; }
   .selo-stage { min-height: 380px; }
   .stage-flames { width: 200px; height: 220px; transform: translateX(-50%) scale(1.25); }
-  .stage-photo { width: min(300px, 88%); }
+  .stage-photo { width: 100%; }
   .stage-seal { width: 78px; height: 78px; transform: translate(-20%, 20%); }
   .seal-core { width: 62px; height: 62px; font-size: 15px; }
   .seal-core i { font-size: 8px; }
