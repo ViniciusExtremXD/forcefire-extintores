@@ -94,7 +94,7 @@
     if (nav.classList.contains('is-open')) closeNav(); else openNav();
   });
   nav.addEventListener('click', e => {
-    if (e.target.closest('.nav-link') && nav.classList.contains('is-open')) closeNav();
+    if ((e.target.closest('.nav-link') || e.target.closest('.nav-cta')) && nav.classList.contains('is-open')) closeNav();
   });
   // Esc fecha o menu e devolve o foco ao botão (padrão de diálogo)
   document.addEventListener('keydown', e => {
@@ -103,7 +103,7 @@
   // Contém o Tab dentro do overlay enquanto aberto (foco não vaza para o <main>)
   nav.addEventListener('keydown', e => {
     if (e.key !== 'Tab' || !nav.classList.contains('is-open')) return;
-    const items = nav.querySelectorAll('.nav-link');
+    const items = nav.querySelectorAll('.nav-link, .nav-cta');
     if (!items.length) return;
     const first = items[0], last = items[items.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }

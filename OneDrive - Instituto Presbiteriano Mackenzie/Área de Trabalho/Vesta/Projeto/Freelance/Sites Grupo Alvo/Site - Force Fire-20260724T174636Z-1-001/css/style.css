@@ -471,11 +471,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 /* Barra vermelha que desliza suavemente sobre o card ativo */
 .difs-bar {
   position: absolute; top: 0; left: 0;
-  width: 25%; height: 3.5px;
+  height: 3.5px;
   background: var(--red-light);
   box-shadow: 0 0 14px var(--red-light);
   z-index: 10;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: left 0.45s cubic-bezier(0.25, 1, 0.5, 1), width 0.45s cubic-bezier(0.25, 1, 0.5, 1);
   pointer-events: none;
 }
 
@@ -1144,7 +1144,19 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
   .nav-link::after { display: none; }
   .nav-link:hover, .nav-link.is-active { color: #fca5a5; }
   .nav-toggle { display: flex; position: relative; z-index: 960; }
+
+  /* CTA dentro do menu mobile */
+  .nav-cta {
+    margin-top: 18px; padding: 14px 36px; font-size: 16px; font-weight: 700;
+    border-radius: var(--r); letter-spacing: 0.02em;
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out), background 0.25s ease;
+  }
+  .nav.is-open .nav-cta { opacity: 1; transform: translateY(0); transition-delay: 0.44s; }
 }
+/* Esconde o CTA do menu no desktop */
+.nav-cta { display: none; }
+@media (max-width: 1080px) { .nav-cta { display: inline-flex; } }
 
 /* ==========================================================================
    RESPONSIVO
@@ -1160,64 +1172,212 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
   .faq-grid { grid-template-columns: 1fr; gap: 40px; }
   .faq-head { position: static; }
   .contato-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 36px; }
 }
 @media (max-width: 768px) {
   :root { --header-h: 72px; --header-h-scrolled: 62px; }
-  .section { padding: 72px 0; }
-  .container { width: min(100% - 40px, var(--container)); }
+  .section { padding: 64px 0; }
+  .container { width: min(100% - 36px, var(--container)); }
+
+  /* Topbar */
   .topbar { font-size: 11.5px; }
   .topbar-inner { justify-content: center; gap: 6px 18px; padding-block: 7px; }
   .topbar-right { gap: 14px; }
   .topbar-item { gap: 5px; }
   .topbar-item svg { width: 13px; height: 13px; }
   .topbar-insta { display: none; }
+
+  /* Header / Brand */
   .brand-icon { height: 48px; }
   .header.is-scrolled .brand-icon { height: 42px; }
   .brand-text { padding-left: 12px; }
   .brand-name { font-size: 18px; }
   .header-cta { display: none; }
-  .hero { height: max(600px, calc(100svh - 112px)); }
-  .slide-content { padding-bottom: 150px; }
-  .slide-text { font-size: 15px; }
+
+  /* Hero */
+  .hero { height: max(560px, calc(100svh - 112px)); }
+  .slide-content { padding-bottom: 120px; }
+  .slide-text { font-size: 15px; max-width: 90%; }
+  .slide-ctas { gap: 10px; }
   .slide-ctas .btn { padding: 13px 20px; font-size: 14px; }
-  .hero-ui { bottom: 92px; }
+  .hero-ui { bottom: 72px; }
   .hero-dot b { width: 40px; }
-  .hero-dots { gap: 20px; }
+  .hero-dots { gap: 18px; }
+
+  /* Diferenciais */
   .difs-grid { margin-top: -48px; }
   .dif { padding: 24px 20px; }
-  .lanes { padding: 52px 0 46px; }
-  .lane-card { width: 208px; height: 128px; }
-  .lane-group { gap: 14px; padding-right: 14px; }
+  .dif::before { font-size: 36px; }
+  .dif h3 { font-size: 15px; }
+  .dif p { font-size: 13px; }
+
+  /* Lanes / Marquee */
+  .lanes { padding: 48px 0 42px; }
+  .lane-card { width: 200px; height: 120px; }
+  .lane-group { gap: 12px; padding-right: 12px; }
+
+  /* Empresa */
+  .empresa-photo img { height: 300px; }
+  .empresa-photo figcaption b { font-size: 16px; }
+  .empresa-photo figcaption span { font-size: 12px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stats li, .stats li + li { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 2px; }
   .stats { border-top: 0; }
-  .avcb-card { padding: 30px 22px; }
+  .beneficio { padding: 24px 20px 22px; }
+  .beneficio h3 { font-size: 16px; }
+  .beneficio p { font-size: 13.5px; }
+
+  /* Serviços / Licenciamento */
+  .avcb-card { padding: 28px 20px; }
   .avcb-tipos { grid-template-columns: 1fr; }
-  .produtos-head { flex-direction: column; align-items: flex-start; }
+  .servico h3 { font-size: 15.5px; }
+
+  /* Produtos */
+  .produtos-head { flex-direction: column; align-items: flex-start; gap: 16px; }
   .show-nav { padding-bottom: 0; }
   .showroom { grid-auto-columns: 82%; }
-  .selo { padding: 72px 0; }
-  .selo-stage { min-height: 380px; }
-  .stage-seal { right: 2%; top: 4%; width: 96px; height: 96px; }
-  .seal-core { width: 76px; height: 76px; font-size: 18px; }
-  .cta-band { padding: 56px 0; }
-  .cta-band-inner { flex-direction: column; align-items: flex-start; }
-  .insta-band { padding: 46px 0; }
-  .insta-inner { gap: 18px; }
-  .form { padding: 24px 20px; }
+  .show-arrow { width: 42px; height: 42px; }
+  .show-arrow svg { width: 16px; height: 16px; }
+
+  /* Selo */
+  .selo { padding: 64px 0; }
+  .selo-stage { min-height: 340px; }
+  .stage-flames { width: 240px; height: 260px; }
+  .stage-seal { right: 2%; top: 4%; width: 90px; height: 90px; }
+  .seal-core { width: 70px; height: 70px; font-size: 17px; }
+  .seal-core i { font-size: 9px; }
+  .selo-list li { padding: 16px 16px 16px 36px; }
+  .selo-list b { font-size: 14.5px; }
+  .selo-list span { font-size: 13px; }
+
+  /* CTA Band */
+  .cta-band { padding: 48px 0; }
+  .cta-band-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .cta-band p { font-size: 15px; }
+
+  /* FAQ */
+  .faq-item summary { padding: 18px 4px; font-size: 15.5px; gap: 14px; }
+  .faq-body p { font-size: 14px; padding: 0 4px 20px; }
+  .faq-icon { width: 24px; height: 24px; }
+
+  /* Instagram Band */
+  .insta-band { padding: 42px 0; }
+  .insta-inner { gap: 16px; }
+  .insta-icon { width: 52px; height: 52px; }
+  .insta-icon svg { width: 24px; height: 24px; }
+  .insta-band p { font-size: 14px; }
+
+  /* Contato */
+  .form { padding: 24px 18px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
+  .field input, .field select, .field textarea { font-size: 16px; padding: 14px 16px; }
+  .info-card { padding: 24px 20px; }
+  .info-card h3 { font-size: 17px; margin-bottom: 18px; padding-bottom: 14px; }
+  .info-list li { padding: 10px 0; gap: 12px; }
+  .info-icon { width: 38px; height: 38px; }
+  .info-icon svg { width: 16px; height: 16px; }
+  .info-list a, .info-list span { font-size: 14px; }
   .map-band { height: 260px; margin-top: 20px; }
   .map-band-link { left: 14px; bottom: 14px; right: 14px; max-width: none; padding: 12px 14px; gap: 12px; }
   .map-band-link span { display: none; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; padding: 56px 0 44px; }
-  .whats-float { right: 20px; bottom: 20px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; padding: 52px 0 40px; }
+  .footer-logo { padding: 8px 14px 8px 10px; }
+  .footer-logo img { height: 40px; }
+  .footer-logo .brand-name { font-size: 16px; }
+  .footer-brand p { font-size: 13.5px; }
+  .footer-col a { font-size: 13.5px; }
+
+  /* WhatsApp float */
+  .whats-float { right: 18px; bottom: 18px; width: 54px; height: 54px; }
+  .whats-float svg { width: 28px; height: 28px; }
 }
+
+/* ---------- SMALL MOBILE (≤560px) ---------- */
 @media (max-width: 560px) {
-  .difs-grid, .beneficios-grid, .servicos-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .slide-title { font-size: clamp(30px, 9vw, 38px); }
+  .section { padding: 52px 0; }
+  .container { width: min(100% - 28px, var(--container)); }
+  .section-title { font-size: clamp(24px, 7vw, 32px); }
+  .section-lead { font-size: 14.5px; }
+
+  /* Topbar */
   .topbar-inner { flex-direction: column; align-items: center; gap: 3px; }
-  .topbar-right { justify-content: center; }
+  .topbar-right { justify-content: center; flex-wrap: wrap; gap: 10px; }
+
+  /* Hero */
+  .hero { height: max(520px, calc(100svh - 100px)); }
+  .slide-title { font-size: clamp(26px, 8vw, 36px); }
+  .slide-text { font-size: 14px; }
+  .slide-content { padding-bottom: 100px; }
+  .slide-kicker { font-size: 11px; }
+  .slide-ctas .btn { padding: 12px 18px; font-size: 13.5px; width: 100%; justify-content: center; }
+  .hero-ui { bottom: 56px; }
+
+  /* Diferenciais */
+  .difs-grid { grid-template-columns: 1fr; margin-top: -36px; }
+  .dif::before { font-size: 30px; }
+
+  /* Empresa */
+  .empresa-grid { gap: 32px; }
+  .empresa-photo img { height: 240px; }
+  .empresa-photo figcaption { left: 16px; bottom: 16px; }
+  .empresa-photo figcaption b { font-size: 14px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats b { font-size: clamp(22px, 6vw, 30px); }
+  .beneficios-grid { grid-template-columns: 1fr; gap: 14px; }
+  .beneficio { padding: 22px 18px 20px; }
+
+  /* Serviços */
+  .servicos-grid { grid-template-columns: 1fr; }
+  .avcb-card { padding: 24px 16px; }
+
+  /* Produtos */
+  .showroom { grid-auto-columns: 90%; }
+  .show-arrow { width: 38px; height: 38px; }
+
+  /* Selo */
+  .selo { padding: 52px 0; }
+  .selo-stage { min-height: 300px; }
+  .stage-flames { width: 200px; height: 220px; }
+  .stage-ext { width: min(200px, 55%); }
+  .stage-seal { width: 78px; height: 78px; right: 0; top: 2%; }
+  .seal-core { width: 62px; height: 62px; font-size: 15px; }
+  .seal-core i { font-size: 8px; }
+  .selo-list li { padding: 14px 14px 14px 32px; }
+  .selo-list li::before { left: 10px; top: 19px; width: 10px; height: 10px; }
+  .selo-list b { font-size: 14px; }
+  .selo-list span { font-size: 12.5px; }
+
+  /* CTA Band */
+  .cta-band { padding: 40px 0; }
+  .cta-band h2 { font-size: clamp(22px, 6vw, 30px); }
+  .cta-band p { font-size: 14px; }
+
+  /* FAQ */
+  .faq-item summary { padding: 16px 2px; font-size: 14.5px; }
+  .faq-body p { font-size: 13.5px; padding: 0 2px 18px; }
+
+  /* Instagram Band */
+  .insta-band { padding: 36px 0; }
+  .insta-inner { flex-direction: column; text-align: center; align-items: center; }
+  .insta-copy { min-width: 0; }
+  .insta-band .btn { align-self: center; }
+
+  /* Contato */
+  .form { padding: 20px 16px; }
+  .info-card { padding: 22px 16px; }
+  .cnpj { font-size: 12px; }
+  .map-band { height: 220px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; padding: 44px 0 36px; }
+  .footer-bottom { padding: 18px 0; font-size: 11.5px; }
+
+  /* Lanes */
+  .lanes { padding: 40px 0 36px; }
+  .lane-card { width: 180px; height: 108px; }
+  .lane-group { gap: 10px; padding-right: 10px; }
 }
 
 /* ==========================================================================
