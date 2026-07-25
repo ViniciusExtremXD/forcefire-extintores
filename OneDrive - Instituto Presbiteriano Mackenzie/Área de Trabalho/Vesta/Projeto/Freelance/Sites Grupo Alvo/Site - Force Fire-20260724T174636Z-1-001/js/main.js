@@ -112,11 +112,11 @@
   // Cruzar para desktop com o menu aberto: fecha e restaura o scroll do body
   mqDesktop.addEventListener('change', e => { if (e.matches) closeNav(); });
 
-  /* ---------- Hero slider (Infinito: troca a cada 4.5s) ---------- */
+  /* ---------- Hero slider (Infinito: troca a cada 5s) ---------- */
   const hero = document.querySelector('.hero');
   const slides = Array.from(document.querySelectorAll('.hero-slider .slide'));
   const dots = Array.from(document.querySelectorAll('.hero-dot'));
-  const SLIDE_MS = 4500;
+  const SLIDE_MS = 5000;
   let current = 0;
   let timer = null;
 
@@ -210,13 +210,37 @@
   }
 
   /* ---------- Rolagem ultra suave para navegação e links ---------- */
+  // Implementação própria via requestAnimationFrame: o scroll nativo
+  // (window.scrollTo({behavior:'smooth'})) delega a animação ao navegador, que
+  // por padrão RESPEITA o "reduzir movimento" do sistema operacional e some
+  // com a suavidade (some navegadores até pulam direto pro destino) mesmo
+  // quando o site pede motion sempre ativo. Fazendo a interpolação nós mesmos
+  // (easeOutCubic, duração proporcional à distância) a rolagem fica sempre
+  // fluida, controlada e imune a essa configuração do SO/navegador.
+  function smoothScrollTo(targetY) {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    if (Math.abs(distance) < 2) return;
+    const duration = motionOff ? 0 : Math.min(1400, Math.max(550, Math.abs(distance) * 0.16));
+    if (duration <= 0) { window.scrollTo(0, targetY); return; }
+    const startTime = performance.now();
+    const ease = t => 1 - Math.pow(1 - t, 3); // easeOutCubic
+    (function step(now) {
+      const t = Math.min((now - startTime) / duration, 1);
+      window.scrollTo({ top: startY + distance * ease(t), left: 0, behavior: 'auto' });
+      if (t < 1) requestAnimationFrame(step);
+    })(startTime);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     const hash = link.getAttribute('href');
     if (!hash || hash === '#') return;
     link.addEventListener('click', e => {
       e.preventDefault();
+      // Clicar no nome/logo da marca sempre volta ao topo absoluto — revela a
+      // topbar inteira, sem parar por baixo do header sticky.
       if (hash === '#home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        smoothScrollTo(0);
         if (history.pushState) history.pushState(null, '', '#home');
         return;
       }
@@ -225,7 +249,7 @@
         const topbarH = document.querySelector('.topbar')?.offsetHeight || 40;
         const headerH = document.getElementById('header')?.offsetHeight || 70;
         const targetPos = target.getBoundingClientRect().top + window.scrollY - (topbarH + headerH + 10);
-        window.scrollTo({ top: Math.max(0, targetPos), behavior: 'smooth' });
+        smoothScrollTo(Math.max(0, targetPos));
         if (history.pushState) history.pushState(null, '', hash);
       }
     });
