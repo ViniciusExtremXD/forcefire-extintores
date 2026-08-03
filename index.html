@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=9">
 
   <!-- Dados estruturados: negócio local -->
   <script type="application/ld+json">
@@ -39,14 +39,16 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "ForceFire Extintores e Segurança",
+    "legalName": "ForceFire Extintores e Segurança Ltda",
+    "taxID": "38.336.385/0001-35",
     "description": "Empresa de equipamentos contra incêndio: venda, recarga e manutenção de extintores, mangueiras, sinalização e regularização AVCB/CLCB.",
     "telephone": "+55-16-3663-5520",
     "email": "forcefire.extintores@hotmail.com",
-    "image": "https://viniciusextremxd.github.io/forcefire-extintores/img/logo-forcefire.png",
+    "image": "https://viniciusextremxd.github.io/forcefire-extintores/img/logo-forcefire-lockup.png",
     "areaServed": "Ribeirão Preto, região e Estado de São Paulo",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rua Bonifácio Manha",
+      "streetAddress": "Rua Bonifácio Manha, 901",
       "addressLocality": "Jardinópolis",
       "addressRegion": "SP",
       "postalCode": "14680-000",
@@ -90,7 +92,7 @@
       <div class="topbar-right">
         <a class="topbar-item" href="tel:+551636635520">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-          <span>Fixo: (16) 3663-5520</span>
+          <span>Fixo/WhatsApp: (16) 3663-5520</span>
         </a>
         <a class="topbar-item topbar-whats" href="https://wa.me/5516994088793?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20ForceFire%20Extintores." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
@@ -107,12 +109,10 @@
   <!-- ============ HEADER / NAVBAR ============ -->
   <header class="header" id="header">
     <div class="container header-inner">
-      <a href="#home" class="brand" aria-label="ForceFire Extintores - Início">
-        <img class="brand-icon" src="img/logo-forcefire-180.png?v=1" alt="ForceFire Extintores" width="204" height="180" fetchpriority="high">
-        <span class="brand-text">
-          <b class="brand-name">FORCE<i>FIRE</i></b>
-          <span class="brand-sub">Extintores</span>
-        </span>
+      <!-- Lockup oficial da marca (arte do cliente, fundo recortado). Substitui
+           o antigo símbolo + wordmark montado em tipografia, que não era a marca. -->
+      <a href="#home" class="brand" aria-label="ForceFire Extintores e Segurança - Início">
+        <img class="brand-logo" src="img/logo-forcefire-lockup.webp?v=1" alt="ForceFire Extintores e Segurança" width="703" height="180" fetchpriority="high">
       </a>
 
       <nav class="nav" id="nav" aria-label="Navegação principal">
@@ -717,7 +717,7 @@
               <ul class="info-list">
                 <li>
                   <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
-                  <div><b>Telefone fixo</b><a href="tel:+551636635520">(16) 3663-5520</a></div>
+                  <div><b>Telefone fixo &amp; WhatsApp</b><a href="tel:+551636635520">(16) 3663-5520</a><a class="info-alt" href="https://wa.me/551636635520" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Chamar no WhatsApp</a></div>
                 </li>
                 <li>
                   <div class="info-icon info-icon-green"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></div>
@@ -733,10 +733,10 @@
                 </li>
                 <li>
                   <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                  <div><b>Endereço</b><a href="https://maps.google.com/?q=Rua+Bonif%C3%A1cio+Manha,+Jardin%C3%B3polis+-+SP,+14680-000" target="_blank" rel="noopener">Rua Bonifácio Manha<br>Jardinópolis/SP · CEP 14680-000</a></div>
+                  <div><b>Endereço</b><a href="https://maps.google.com/?q=Rua+Bonif%C3%A1cio+Manha,+901,+Jardin%C3%B3polis+-+SP,+14680-000" target="_blank" rel="noopener">Rua Bonifácio Manha, 901<br>Jardinópolis/SP · CEP 14680-000</a></div>
                 </li>
               </ul>
-              <p class="cnpj">Empresa de Equipamentos Contra Incêndio<br>Atende Ribeirão Preto, região e todo o Estado de SP</p>
+              <p class="cnpj">ForceFire Extintores e Segurança Ltda<br>CNPJ 38.336.385/0001-35<br>Atende Ribeirão Preto, região e todo o Estado de SP</p>
             </div>
           </aside>
         </div>
@@ -744,14 +744,14 @@
         <div class="map-band glow-card reveal">
           <iframe
             class="map-band-embed"
-            src="https://www.google.com/maps?q=Rua+Bonif%C3%A1cio+Manha,+Jardin%C3%B3polis+-+SP,+14680-000&output=embed"
-            title="Mapa da ForceFire: Rua Bonifácio Manha, Jardinópolis/SP"
+            src="https://www.google.com/maps?q=Rua+Bonif%C3%A1cio+Manha,+901,+Jardin%C3%B3polis+-+SP,+14680-000&output=embed"
+            title="Mapa da ForceFire: Rua Bonifácio Manha, 901, Jardinópolis/SP"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <a class="map-band-link" href="https://maps.google.com/?q=Rua+Bonif%C3%A1cio+Manha,+Jardin%C3%B3polis+-+SP,+14680-000" target="_blank" rel="noopener">
+          <a class="map-band-link" href="https://maps.google.com/?q=Rua+Bonif%C3%A1cio+Manha,+901,+Jardin%C3%B3polis+-+SP,+14680-000" target="_blank" rel="noopener">
             <div class="map-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
-              <b>Rua Bonifácio Manha · Jardinópolis/SP</b>
+              <b>Rua Bonifácio Manha, 901 · Jardinópolis/SP</b>
               <span>Como chegar no Google Maps</span>
             </div>
             <svg class="map-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -765,12 +765,10 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
+        <!-- A pílula branca é necessária: o "FF" e o "EXTINTORES E SEGURANÇA"
+             da marca são escuros e sumiriam sobre o preto do rodapé. -->
         <div class="footer-logo">
-          <img class="brand-icon" src="img/logo-forcefire-180.png?v=1" alt="ForceFire Extintores" width="204" height="180" loading="lazy">
-          <span class="brand-text">
-            <b class="brand-name">FORCE<i>FIRE</i></b>
-            <span class="brand-sub">Extintores</span>
-          </span>
+          <img src="img/logo-forcefire-lockup.webp?v=1" alt="ForceFire Extintores e Segurança" width="703" height="180" loading="lazy">
         </div>
         <p>Venda, recarga e manutenção de equipamentos contra incêndio com rigor técnico, conformidade Inmetro e aviso gratuito de vencimento.</p>
         <div class="footer-social">
@@ -806,16 +804,16 @@
 
       <div class="footer-col">
         <h4>Contato</h4>
-        <a href="tel:+551636635520">(16) 3663-5520</a>
+        <a href="tel:+551636635520">(16) 3663-5520 · Fixo e WhatsApp</a>
         <a href="https://wa.me/5516994088793" target="_blank" rel="noopener">(16) 99408-8793 · WhatsApp</a>
         <a href="mailto:forcefire.extintores@hotmail.com">forcefire.extintores@hotmail.com</a>
         <a href="https://www.instagram.com/forcefire_extintores" target="_blank" rel="noopener">@forcefire_extintores</a>
-        <p>Rua Bonifácio Manha<br>Jardinópolis/SP · CEP 14680-000<br>Atende Ribeirão Preto, região e todo SP</p>
+        <p>Rua Bonifácio Manha, 901<br>Jardinópolis/SP · CEP 14680-000<br>Atende Ribeirão Preto, região e todo SP</p>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>© <span id="year">2026</span> ForceFire Extintores e Segurança · Serviços conforme Portaria Inmetro e ABNT NBR 12962 / 13434 · Todos os direitos reservados.</p>
+        <p>© <span id="year">2026</span> ForceFire Extintores e Segurança Ltda · CNPJ 38.336.385/0001-35 · Serviços conforme Portaria Inmetro e ABNT NBR 12962 / 13434 · Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
@@ -826,6 +824,6 @@
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
   </a>
 
-  <script src="js/main.js?v=7" defer></script>
+  <script src="js/main.js?v=9" defer></script>
 </body>
 </html>

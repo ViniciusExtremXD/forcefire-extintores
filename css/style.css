@@ -165,31 +165,16 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 }
 .header.is-scrolled .header-inner { height: var(--header-h-scrolled); }
 
-/* Marca: ícone + wordmark com respiro e divisor — logo aumentada e destacada */
-.brand { display: flex; align-items: center; gap: 16px; padding-right: 4px; }
-/* A arte oficial tem margem interna própria, então a altura aqui é maior do
-   que a marca aparenta em tela — calibrado para equilibrar com o wordmark. */
-.brand-icon { height: 72px; width: auto; flex: 0 0 auto; transition: height 0.35s var(--ease-out), transform 0.35s var(--ease-spring); }
-.brand-icon:hover { transform: scale(1.06); }
-.header.is-scrolled .brand-icon { height: 56px; }
-.brand-text {
-  display: flex; flex-direction: column; line-height: 1;
-  padding-left: 16px; border-left: 1.5px solid var(--line);
+/* Marca: lockup oficial completo (símbolo + FORCEFIRE + EXTINTORES E
+   SEGURANÇA) numa única arte. Antes era símbolo + wordmark remontado em
+   tipografia, que não correspondia à marca real do cliente. */
+.brand { display: flex; align-items: center; padding-right: 4px; }
+.brand-logo {
+  height: 56px; width: auto; display: block;
+  transition: height 0.35s var(--ease-out), transform 0.35s var(--ease-spring);
 }
-.brand-name {
-  font-family: var(--font-head); font-weight: 800;
-  font-size: 26px; letter-spacing: -0.02em;
-  color: var(--text);
-}
-.brand-name i { font-style: normal; color: var(--red); }
-.brand-sub {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-mono); font-weight: 600;
-  font-size: 10.5px; letter-spacing: 0.38em; text-transform: uppercase;
-  color: var(--text-mut);
-  margin-top: 5px;
-}
-.brand-sub::before { content: ""; height: 2px; width: 18px; background: var(--red); }
+.brand-logo:hover { transform: scale(1.04); }
+.header.is-scrolled .brand-logo { height: 46px; }
 
 .nav { display: flex; align-items: center; gap: 2px; }
 .nav-link {
@@ -1110,6 +1095,18 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
 .info-list b { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-inv-mut); }
 .info-list a, .info-list span { font-size: 15px; color: #fff; font-weight: 500; }
 .info-list a:hover { color: #fca5a5; }
+/* Ação secundária dentro de um contato — o fixo também atende no WhatsApp.
+   Menor e em verde, para não competir com o número em si. */
+.info-list .info-alt {
+  /* flex (nível de bloco) + fit-content: cai numa linha própria abaixo do
+     número, sem esticar a área clicável até o fim do card. */
+  display: flex; width: fit-content; align-items: center; gap: 6px;
+  margin-top: 5px;
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 500;
+  letter-spacing: 0.02em; color: #34d399;
+}
+.info-list .info-alt svg { width: 13px; height: 13px; flex: 0 0 auto; }
+.info-list .info-alt:hover { color: #6ee7b7; }
 .cnpj { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--hair-dark); font-size: 13px; color: var(--text-inv-mut); line-height: 1.5; }
 
 .map-band { position: relative; margin-top: 26px; height: 340px; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--lift); transition: box-shadow 0.4s ease, border-color 0.4s ease; }
@@ -1130,18 +1127,19 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--
    ========================================================================== */
 .footer { background: var(--ink); color: #b6bcc6; border-top: 3px solid var(--red); }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 0.8fr 0.9fr 1fr; gap: 48px; padding: 76px 0 56px; }
-.footer-logo { display: inline-flex; align-items: center; gap: 12px; background: #fff; border-radius: var(--r); padding: 10px 18px 10px 14px; margin-bottom: 20px; }
-.footer-logo img { height: 48px; width: auto; }
-.footer-logo .brand-text { padding-left: 12px; border-left-color: var(--line); }
-.footer-logo .brand-name { font-size: 18px; color: var(--text); }
-.footer-logo .brand-sub { font-size: 8px; color: var(--text-mut); }
+.footer-logo { display: inline-flex; align-items: center; background: #fff; border-radius: var(--r); padding: 12px 18px; margin-bottom: 20px; }
+.footer-logo img { height: 46px; width: auto; display: block; }
 .footer-brand p { font-size: 14.5px; max-width: 300px; }
 .footer-social { display: flex; gap: 10px; margin-top: 22px; }
 .footer-social a { width: 42px; height: 42px; display: grid; place-items: center; background: var(--ink-800); border: 1px solid var(--hair-dark); color: #e2e8f0; clip-path: polygon(0 0, 100% 0, 100% 74%, 74% 100%, 0 100%); transition: background 0.3s ease, transform 0.3s var(--ease-spring), color 0.3s ease; }
 .footer-social a:hover { background: var(--red); color: #fff; transform: translateY(-3px); }
 .footer-social svg { width: 18px; height: 18px; }
 .footer-col h4 { color: #fff; font-size: 12px; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
-.footer-col a { display: inline-flex; font-size: 14.5px; padding: 5px 0; color: #9aa1ac; transition: color 0.25s ease, transform 0.25s var(--ease-out); }
+/* flex (nível de bloco) + fit-content: um link por linha, como uma lista de
+   navegação deve ser. Com inline-flex eles fluíam na mesma linha e quebravam
+   em pontos aleatórios ("Home A Empresa Serviços" grudados); o fit-content
+   mantém a área clicável só sobre o texto e preserva o translateX do hover. */
+.footer-col a { display: flex; width: fit-content; font-size: 14.5px; padding: 5px 0; color: #9aa1ac; transition: color 0.25s ease, transform 0.25s var(--ease-out); }
 .footer-col a:hover { color: #fca5a5; transform: translateX(4px); }
 .footer-col p { font-size: 14px; color: #9aa1ac; margin-top: 10px; }
 .footer-bottom { border-top: 1px solid var(--hair-dark); padding: 22px 0; font-size: 12.5px; color: #7c828d; text-align: center; }
@@ -1238,10 +1236,8 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
   .topbar-insta { display: none; }
 
   /* Header / Brand */
-  .brand-icon { height: 54px; }
-  .header.is-scrolled .brand-icon { height: 46px; }
-  .brand-text { padding-left: 12px; }
-  .brand-name { font-size: 18px; }
+  .brand-logo { height: 42px; }
+  .header.is-scrolled .brand-logo { height: 36px; }
   .header-cta { display: none; }
 
   /* Hero */
@@ -1333,9 +1329,8 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; padding: 52px 0 40px; }
-  .footer-logo { padding: 8px 14px 8px 10px; }
-  .footer-logo img { height: 40px; }
-  .footer-logo .brand-name { font-size: 16px; }
+  .footer-logo { padding: 10px 14px; }
+  .footer-logo img { height: 38px; }
   .footer-brand p { font-size: 13.5px; }
   .footer-col a { font-size: 13.5px; }
 
@@ -1359,6 +1354,12 @@ body.menu-open .scroll-progress { visibility: hidden !important; }
   /* Topbar */
   .topbar-inner { flex-direction: column; align-items: center; gap: 3px; }
   .topbar-right { justify-content: center; flex-wrap: wrap; gap: 10px; }
+  /* O nowrap global evita quebrar um número no meio ("(16) 3663-|5520"), mas
+     na frase de localização ele empurrava a página e criava rolagem lateral
+     em telas estreitas (bug antigo: 43px de estouro em 320px). Aqui a frase
+     pode quebrar; os itens curtos (telefones) seguem sem quebra. */
+  .topbar-item { white-space: normal; text-align: center; }
+  .topbar-right .topbar-item { white-space: nowrap; }
 
   /* Hero */
   .hero { height: max(520px, calc(100svh - 100px)); }
