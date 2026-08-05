@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://viniciusextremxd.github.io/forcefire-extintores/sitemap.xml
+Sitemap: https://forcefire.com.br/sitemap.xml
