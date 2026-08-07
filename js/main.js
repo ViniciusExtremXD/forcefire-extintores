@@ -553,6 +553,20 @@
       msg ? `💬 *Mensagem:* ${msg}` : null
     ].filter(Boolean).join('\n');
 
+    // Evento de Lead para o GTM. O formulário não faz submit de verdade
+    // (preventDefault + window.open), então o gatilho nativo de formulário do
+    // GTM nunca dispararia — a conversão precisa vir deste push.
+    // Os cliques em links wa.me NÃO são empurrados aqui: eles são capturados
+    // pelo gatilho nativo "Click URL contém wa.me". Empurrar os dois faria a
+    // mesma conversão contar duas vezes. window.open não gera gtm.linkClick,
+    // então este caminho não colide com aquele gatilho.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead_formulario',
+      form_id: 'quoteForm',
+      lead_servico: servico
+    });
+
     window.open(`https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
   });
 
