@@ -1,0 +1,11 @@
+# ForceFire — regras de servidor
+#
+# Redireciona www.forcefire.com.br para forcefire.com.br com 301.
+# Sem isso o site responde 200 nos dois endereços e o Google vê conteúdo
+# duplicado. O <link rel="canonical"> já aponta para o apex e mitiga, mas
+# o redirecionamento é o que resolve de fato.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.forcefire\.com\.br$ [NC]
+  RewriteRule ^(.*)$ https://forcefire.com.br/$1 [R=301,L]
+</IfModule>
